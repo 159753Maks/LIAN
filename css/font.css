@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "SegoeUI-Bold";
+    src: url(../fonts/SegoeUI-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SegoeUI-BoldItalic";
+    src: url(../fonts/SegoeUI-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SegoeUI-Italic";
+    src: url(../fonts/SegoeUI-Italic.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SegoeUI-Light";
+    src: url(../fonts/SegoeUI-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SegoeUI-SemiBold";
+    src: url(../fonts/SegoeUI-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SegoeUI";
+    src: url(../fonts/SegoeUI.ttf) format("truetype");
+}
