@@ -1,29 +1,24 @@
 @font-face {
-    font-family: "SegoeUI-Bold";
-    src: url(../fonts/SegoeUI-Bold.ttf) format("truetype");
+    font-family: "Roboto-Bold";
+    src: url(../font/Roboto-Bold.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "SegoeUI-BoldItalic";
-    src: url(../fonts/SegoeUI-BoldItalic.ttf) format("truetype");
+    font-family: "Roboto-BoldItalic";
+    src: url(../font/Roboto-BoldItalic.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "SegoeUI-Italic";
-    src: url(../fonts/SegoeUI-Italic.ttf) format("truetype");
+    font-family: "Roboto-Italic";
+    src: url(../font/Roboto-Italic.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "SegoeUI-Light";
-    src: url(../fonts/SegoeUI-Light.ttf) format("truetype");
+    font-family: "Roboto-Light";
+    src: url(../font/Roboto-Light.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "SegoeUI-SemiBold";
-    src: url(../fonts/SegoeUI-SemiBold.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "SegoeUI";
-    src: url(../fonts/SegoeUI.ttf) format("truetype");
+    font-family: "Roboto";
+    src: url(../font/Roboto-Regular.ttf) format("truetype");
 }
