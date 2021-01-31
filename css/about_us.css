@@ -45,6 +45,10 @@ body {
     width: 100%;
     height: 350px;
     background: url(/img/Clip1.jpg) left/cover no-repeat;  
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
 .agency_text{
@@ -115,6 +119,82 @@ body {
     letter-spacing: 4px;
 }
 
+/*BLOCK-2*/
+.block_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    width: 70%;
+    height: 850px;
+}
+
+.block-2-text{
+    width: 45%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block-2-text h1{
+    font-family: "Roboto-Light";
+    font-size: 30px;
+    letter-spacing:4px;
+    color: #000000;
+}
+
+.block-2-text p{
+    font-family: "Roboto";
+    font-size: 14px;
+    text-align: center;
+    color: #777777;
+}
+
+.we{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 650px;
+}
+
+.workers{
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 100%;
+}
+
+.workers-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.workers-text h1{
+    font-family: "Roboto-Light";
+    font-size: 24px;
+    color: #041608;
+}
+
+.workers-text h2{
+    font-family: "Roboto-Bold";
+    font-size: 16px;
+    color: #777777;
+}
+
+.workers-text p{
+    font-family: "Roboto";
+    font-size: 14px;
+    color: #9C9C9C;
+}
 /*FOOTER*/
 .footer {
     display: flex;
