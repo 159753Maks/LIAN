@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
+    width: 50%;
 }
 
 .header_nav a {

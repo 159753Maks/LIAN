@@ -20,14 +20,14 @@ align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
+    width: 50%;
 }
 
 .header_nav a{
     text-decoration: none;
     color: #9C9C9C;
     font-family: "Roboto-Bold";
-    font-size: 20px;
+    font-size: 20px;  
 }
 
 .header_nav a:hover{
