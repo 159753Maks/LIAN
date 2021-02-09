@@ -5,13 +5,10 @@ align-items: center;
 }
 
 .header{
-    width: 100%;
-    height: 90px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    z-index: 10000;
     position: fixed;
     background-color: #fff;
 }
@@ -20,14 +17,12 @@ align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 50%;
 }
 
 .header_nav a{
     text-decoration: none;
     color: #9C9C9C;
     font-family: "Roboto-Bold";
-    font-size: 20px;  
 }
 
 .header_nav a:hover{
@@ -41,10 +36,7 @@ align-items: center;
 /*Block1*/
  
 .wrapper {
-    height: 650px;
     position: relative;
-    width: 100%;
-    padding-top: 90px;
 }
 
 .wrapper>input {
@@ -52,40 +44,20 @@ align-items: center;
 }
 
 .wrapper .controls {
-    left: 50%;
-    top: 550px;
-    margin-left: -98px;
     position: absolute;
-    z-index: 1;
 }
 
 .wrapper label:after {
     border: none;
     content: " ";
     display: block;
-    height: 12px;
-    left: -4px;
     position: absolute;
-    top: -4px;
-    width: 12px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    
 }
 
 .wrapper label {
     cursor: pointer;
     display: inline-block;
-    height: 10px;
-    margin: 25px 12px 0 16px;
     position: relative;
-    width: 10px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
     background: white;
 }
 
@@ -103,14 +75,8 @@ align-items: center;
 
 .slider {
     background-color: white;
-    height: 650px;
     overflow: hidden;
     position: relative;
-    width: 100%;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
 .slides {
@@ -118,26 +84,11 @@ align-items: center;
    align-items: center;
    justify-content: center;
    height: inherit;
-   opacity: 0;
    position: absolute;
    width: inherit;
-   z-index: 0;
-   -webkit-transform: scale(1.5);
-   -moz-transform: scale(1.5);
-   -o-transform: scale(1.5);
-   transform: scale(1.5);
-   -webkit-transition: transform ease-in-out .5s,
-   opacity ease-in-out .5s;
-   -moz-transition: transform ease-in-out .5s,
-   opacity ease-in-out .5s;
-   -o-transition: transform ease-in-out .5s,
-   opacity ease-in-out .5s;
-   transition: transform ease-in-out .5s,
-   opacity ease-in-out .5s;
 }
 
 .slide1 {
-
     background: url(/img/bcc_slider_1.jpg) center/cover no-repeat;
 }
 
@@ -146,15 +97,11 @@ align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 750px;
-    height: 165px;
 }
 
 .slide1_text h1{
     text-align: center;
     font-family: "Roboto-Light";
-    font-size: 48px;
-    width: 720px;
     color: white;
     background-color: black;
 }
@@ -187,9 +134,6 @@ align-items: center;
 /*Main*/
 
 .main{
-    width: 80%;
-    height: 1500px;
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -197,8 +141,6 @@ align-items: center;
 }
 
 .nav{
-    width: 80%;
-    height: 75px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -220,62 +162,46 @@ align-items: center;
 }
 
 .parent {
-    width: 100%;
-    height: 90%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
 }
 
 .div1 {
-    grid-area: 1 / 1 / 2 / 2;
     background: url(/img/grid\ 1.png) center no-repeat;
 }
 
 .div2 {
-    grid-area: 2 / 1 / 3 / 2;
     background: url(/img/grid\ 2.png) center no-repeat;
 }
 
 .div3 {
-    grid-area: 3 / 1 / 4 / 2;
     background: url(/img/grid\ 3.png) center no-repeat;
 }
 
 .div4 {
-    grid-area: 1 / 2 / 2 / 3;
     background: url(/img/grid\ 4.png) center no-repeat;
 }
 
 .div5 {
-    grid-area: 2 / 2 / 3 / 3;
     background: url(/img/grid\ 5.png) center no-repeat;
 }
 
 .div6 {
-    grid-area: 3 / 2 / 4 / 3;
     background: url(/img/grid\ 6.png) center no-repeat;
 }
 
 .div7 {
-    grid-area: 4 / 2 / 5 / 3;
     background: url(/img/grid\ 7.png) center no-repeat;
 }
 
 .div8 {
-    grid-area: 1 / 3 / 2 / 4;
     background: url(/img/grid\ 8.png) center no-repeat;
 }
 
 .div9 {
-    grid-area: 2 / 3 / 3 / 4;
     background: url(/img/grid\ 9.png) center no-repeat;
 }
 
 .div10 {
-    grid-area: 3 / 3 / 4 / 4;
     background: url(/img/grid\ 10.png) center no-repeat;
 }
 
