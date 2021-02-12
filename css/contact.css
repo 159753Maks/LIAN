@@ -41,9 +41,6 @@ body {
 
 /*ABOUT AGENCY*/
 .about_agency {
-    margin-top: 90px;
-    width: 100%;
-    height: 350px;
     background: url(/img/Clip1.jpg) left/cover no-repeat;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
@@ -51,18 +48,10 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
-.agency_text {
-    margin-top: 100px;
-    margin-left: 200px;
-    width: 720px;
-    height: 100px;
-}
-
 .agency_text h1 {
     text-align: center;
     font-family: "Roboto-Light";
     font-size: 48px;
-    width: 720px;
     color: white;
     background-color: black;
 }
@@ -75,21 +64,16 @@ body {
 
 /*FORM*/
 .form{
-    margin-top: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 80%;
-    height: 300px;
 }
 
 .form_text{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50%;
-    height: 100%;
 }
 
 .text1 h1{
@@ -124,8 +108,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50%;
-    height: 100%;
 }
 
 .imputs{
@@ -135,8 +117,6 @@ body {
 }
 
 input{
-    width: 350px;
-    height: 54px;
     outline: none;
     border: none;
     border-bottom: 1px #BABABA solid;
@@ -146,12 +126,6 @@ textarea{
     border: none;
     outline: none;
     border-bottom: 1px #BABABA solid;
-}
-
-iframe{
-    margin-top: 50px;
-   width: 100%;
-   height: 800px;
 }
 
 /*FOOTER*/

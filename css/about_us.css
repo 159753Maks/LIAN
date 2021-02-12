@@ -41,9 +41,6 @@ body {
 
 /*ABOUT AGENCY*/
 .about_agency{
-    margin-top: 90px;
-    width: 100%;
-    height: 350px;
     background: url(/img/Clip1.jpg) left/cover no-repeat;  
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
@@ -51,18 +48,10 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
-.agency_text{
-    margin-top: 100px;
-    margin-left: 200px;
-    width: 720px;
-    height: 100px;
-}
-
 .agency_text h1{
     text-align: center;
     font-family: "Roboto-Light";
     font-size: 48px;
-    width: 720px;
     color: white;
     background-color: black;
 }
@@ -79,21 +68,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 50px;
-    width: 70%;
-    height: 600px;
 }
 
 .block_1-text{
     display: flex;
     flex-direction: column;
-    width: 600px;
-    height: 100%;
 }
 
 .our_story{
-    width: 100%;
-    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -125,14 +107,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
-    width: 70%;
-    height: 850px;
 }
 
 .block-2-text{
-    width: 45%;
-    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -159,20 +136,14 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 650px;
 }
 
 .workers{
     display: flex;
     flex-direction: column;
-    width: 360px;
-    height: 100%;
 }
 
 .workers-text{
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
