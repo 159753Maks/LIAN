@@ -1907,15 +1907,15 @@
   
         /*INDEX.HTML*/
         .wrapper {
-          height: 450px;
+          height: 350px;
           width: 100%;
           padding-top: 90px;
         }
   
         .wrapper .controls {
           left: 50%;
-          top: 550px;
-          margin-left: -98px;
+          top: 350px;
+          margin-left: -50px;
           z-index: 1;
         }
   
@@ -1942,7 +1942,7 @@
         }
   
         .slider {
-          height: 650px;
+          height: 350px;
           width: 100%;
           -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
           -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
@@ -2161,7 +2161,7 @@
         }
   
         .project_text p {
-          text-align: center;
+          width: 100%;
         }
   
         .proj_block1 {
@@ -2188,33 +2188,33 @@
         }
   
         .big_photo {
-          width: 90%;
+          width: 95%;
           height: 350px;
         }
   
         .small_photos {
-          width: 90%;
-          height: 200px;
+          width: 95%;
+          height: 150px;
         }
   
         .small_img1 {
-          width: 115px;
-          height: 115px;
+          width: 75px;
+          height: 75px;
         }
   
         .small_img2 {
-          width: 115px;
-          height: 115px;
+          width: 75px;
+          height: 75px;
         }
   
         .small_img3 {
-          width: 115px;
-          height: 115px;
+          width: 75px;
+          height: 75px;
         }
   
         .small_img4 {
-          width: 115px;
-          height: 115px;
+          width: 75px;
+          height: 75px;
         }
   
         .proj_block2 {
@@ -2233,18 +2233,18 @@
         }
   
         .block2-photo1 {
-          width: 320px;
-          height: 220px;
+          width: 250px;
+          height: 150px;
         }
   
         .block2-photo2 {
-          width: 320px;
-          height: 220px;
+          width: 250px;
+          height: 150px;
         }
   
         .block2-photo3 {
-          width: 320px;
-          height: 220px;
+          width: 250px;
+          height: 150px;
         }
   
         /*FOOTER*/
