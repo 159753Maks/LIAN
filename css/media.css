@@ -2420,10 +2420,6 @@
         }
   
         /*CONTACT.HTML*/
-        
-        .agency_text{
-          
-        }
 
         .agency_text p {
           text-align: center;
@@ -2431,7 +2427,7 @@
   
         .form {
           margin-top: 50px;
-          width: 90%;
+          width: 95%;
           height: 300px;
         }
   
@@ -2446,7 +2442,7 @@
         }
   
         input {
-          width: 160px;
+          width: 130px;
           height: 54px;
         }
   
@@ -2465,7 +2461,7 @@
   
         .agency_text {
           margin-top: 100px;
-          margin-left: 170px;
+          margin-left: 95px;
           width: 420px;
           height: 100px;
         }
@@ -2475,14 +2471,15 @@
         }
   
         .block_1 {
+          justify-content: center;
           margin-top: 50px;
           width: 95%;
-          height: 600px;
+          height: 800px;
         }
   
         .block_1 img{
-          width: 300px;
-          height: 400px;
+          width: 500px;
+          height: 600px;
         }
   
         .block_1-text {
@@ -2500,13 +2497,13 @@
         }
   
         .block_2 {
-          margin-top: 20px;
+          margin-top: 450px;
           width: 95%;
           height: 100%;
         }
   
         .block-2-text {
-          width: 45%;
+          width: 60%;
           height: 150px;
         }
   
@@ -2537,7 +2534,7 @@
   
         .project_text {
           margin-top: 100px;
-          margin-left: 200px;
+          margin-left: 120px;
           width: 720px;
           height: 100px;
         }
