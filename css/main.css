@@ -1,10 +1,10 @@
-body{
-display: flex;
-flex-direction: column;
-align-items: center;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,19 +13,19 @@ align-items: center;
     background-color: #fff;
 }
 
-.header_nav{
+.header_nav {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.header_nav a{
+.header_nav a {
     text-decoration: none;
     color: #9C9C9C;
     font-family: "Roboto-Bold";
 }
 
-.header_nav a:hover{
+.header_nav a:hover {
     color: black;
     transition: color ease-in-out .5s;
     -webkit-transition: color ease-in-out .5s;
@@ -33,8 +33,9 @@ align-items: center;
     -ms-transition: color ease-in-out .5s;
     -o-transition: color ease-in-out .5s;
 }
+
 /*Block1*/
- 
+
 .wrapper {
     position: relative;
 }
@@ -64,7 +65,7 @@ align-items: center;
 .wrapper label:hover,
 #slide1:checked~.controls label:nth-of-type(1),
 #slide2:checked~.controls label:nth-of-type(2),
-#slide3:checked~.controls label:nth-of-type(3){
+#slide3:checked~.controls label:nth-of-type(3) {
     border: 8px solid #000000;
     transition: border ease-in-out .5s;
     -webkit-transition: border ease-in-out .5s;
@@ -80,33 +81,33 @@ align-items: center;
 }
 
 .slides {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: inherit;
-   position: absolute;
-   width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    position: absolute;
+    width: inherit;
 }
 
 .slide1 {
     background: url(/img/bcc_slider_1.jpg) center/cover no-repeat;
 }
 
-.slide1_text{
+.slide1_text {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.slide1_text h1{
+.slide1_text h1 {
     text-align: center;
     font-family: "Roboto-Light";
     color: white;
     background-color: black;
 }
 
-.slide1_text p{
+.slide1_text p {
     text-align: center;
     font-family: "Roboto-Light";
     font-size: 18px;
@@ -122,7 +123,7 @@ align-items: center;
 
 #slide1:checked~.slider>.slide1,
 #slide2:checked~.slider>.slide2,
-#slide3:checked~.slider>.slide3{
+#slide3:checked~.slider>.slide3 {
     opacity: 1;
     z-index: 1;
     -webkit-transform: scale(1);
@@ -133,20 +134,25 @@ align-items: center;
 
 /*Main*/
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.nav a{
+.nav .btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background: none;
+    cursor: pointer;
     font-family: "Roboto-Bold";
     font-size: 14px;
     text-decoration: none;
@@ -157,56 +163,85 @@ align-items: center;
     -ms-transition: color ease-in-out .5s;
 }
 
-.nav a:hover{
+.nav .btn:hover {
     color: #000000;
+}
+
+.show {
+    display: block;
 }
 
 .parent {
     display: grid;
+    overflow: hidden;
 }
 
-.div1 {
+.block {
+
+    margin: 5px;
+    border: 3px solid #435934;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+}
+
+.block .block__hidden {
+    opacity: 0;
+    background-color: #435934;
+}
+
+.block:hover .block__hidden {
+    opacity: 1;
+}
+
+b,
+i {
+    display: block;
+}
+
+.block1 {
     background: url(/img/grid\ 1.png) center no-repeat;
 }
 
-.div2 {
+.block2 {
     background: url(/img/grid\ 2.png) center no-repeat;
 }
 
-.div3 {
+.block3 {
     background: url(/img/grid\ 3.png) center no-repeat;
 }
 
-.div4 {
+.block4 {
     background: url(/img/grid\ 4.png) center no-repeat;
 }
 
-.div5 {
+.block5 {
     background: url(/img/grid\ 5.png) center no-repeat;
 }
 
-.div6 {
+.block6 {
     background: url(/img/grid\ 6.png) center no-repeat;
 }
 
-.div7 {
+.block7 {
     background: url(/img/grid\ 7.png) center no-repeat;
 }
 
-.div8 {
+.block8 {
     background: url(/img/grid\ 8.png) center no-repeat;
 }
 
-.div9 {
+.block9 {
     background: url(/img/grid\ 9.png) center no-repeat;
 }
 
-.div10 {
+.block10 {
     background: url(/img/grid\ 10.png) center no-repeat;
 }
 
 /*FOOTER*/
-.footer{
+.footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -219,7 +254,7 @@ align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 }
 
-.footer_block{
+.footer_block {
     width: 80%;
     height: 100%;
     display: flex;
@@ -228,12 +263,12 @@ align-items: center;
     justify-content: space-evenly;
 }
 
-.footer_text p{
+.footer_text p {
     font-family: "Roboto";
     font-size: 13px;
     color: #9C9C9C;
 }
 
-.footer_text span{
+.footer_text span {
     color: #000000;
 }
