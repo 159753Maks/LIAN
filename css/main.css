@@ -177,9 +177,7 @@ body {
 }
 
 .block {
-
     margin: 5px;
-    border: 3px solid #435934;
     display: flex;
     align-items: flex-end;
     justify-content: center;
