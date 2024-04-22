@@ -8,9 +8,13 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: fixed;
     background-color: #fff;
+}
+
+.header .logo {
+    padding-left: 70px;
 }
 
 .header_nav {
@@ -182,46 +186,11 @@ body {
     align-items: flex-end;
     justify-content: center;
     text-align: center;
+    display: none;
 }
 
 .block1 {
     background: url(/img/grid\ 1.png) center no-repeat;
-}
-
-.block2 {
-    background: url(/img/grid\ 2.png) center no-repeat;
-}
-
-.block3 {
-    background: url(/img/grid\ 3.png) center no-repeat;
-}
-
-.block4 {
-    background: url(/img/grid\ 4.png) center no-repeat;
-}
-
-.block5 {
-    background: url(/img/grid\ 5.png) center no-repeat;
-}
-
-.block6 {
-    background: url(/img/grid\ 6.png) center no-repeat;
-}
-
-.block7 {
-    background: url(/img/grid\ 7.png) center no-repeat;
-}
-
-.block8 {
-    background: url(/img/grid\ 8.png) center no-repeat;
-}
-
-.block9 {
-    background: url(/img/grid\ 9.png) center no-repeat;
-}
-
-.block10 {
-    background: url(/img/grid\ 10.png) center no-repeat;
 }
 
 /*FOOTER*/
