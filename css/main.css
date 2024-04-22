@@ -186,20 +186,6 @@ body {
     text-align: center;
 }
 
-.block .block__hidden {
-    opacity: 0;
-    background-color: #435934;
-}
-
-.block:hover .block__hidden {
-    opacity: 1;
-}
-
-b,
-i {
-    display: block;
-}
-
 .block1 {
     background: url(/img/grid\ 1.png) center no-repeat;
 }
