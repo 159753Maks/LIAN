@@ -115,3 +115,37 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #fff;
+}
+
+.header .logo {
+    padding-left: 70px;
+}
+
+.header_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: #9C9C9C;
+    font-family: "Roboto-Bold";
+}
+
+.header_nav a:hover {
+    color: black;
+    transition: color ease-in-out .5s;
+    -webkit-transition: color ease-in-out .5s;
+    -moz-transition: color ease-in-out .5s;
+    -ms-transition: color ease-in-out .5s;
+    -o-transition: color ease-in-out .5s;
+}
