@@ -175,22 +175,11 @@ body {
     display: block;
 }
 
-.parent {
-    display: grid;
-    overflow: hidden;
-}
-
-.block {
-    margin: 5px;
+section {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    text-align: center;
-    display: none;
-}
-
-.block1 {
-    background: url(/img/grid\ 1.png) center no-repeat;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 50vh;
 }
 
 /*FOOTER*/
