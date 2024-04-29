@@ -1,0 +1,13 @@
+singUp:
+  handler: src/user/handler/sing-up-handler.singUpHandler
+  events:
+    - http:
+        path: singUp
+        method: post
+singIn:
+  handler: src/user/handler/sing-in-handler.singInHandler
+  events:
+    - http:
+        path: singIn
+        method: post
+

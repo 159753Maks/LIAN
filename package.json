@@ -1,0 +1,18 @@
+{
+  "name": "lian",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server:install": "cd server && npm i && npm compose:up && npm migrate",
+    "react:install": "cd react-app && npm i",
+    "server:start": "cd server && npm start",
+    "react:start": "cd react-app && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3"
+  }
+}

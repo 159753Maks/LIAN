@@ -1,0 +1,31 @@
+service: lian
+frameworkVersion: '3'
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-apigw-plugin
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    PORT: 8000
+
+functions:
+  - ${file(src/hello.yml)}
+  - ${file(src/product/product.yml)}
+  - ${file(src/user/user.yml)}
+  - ${file(src/category/category.yml)}
+
+# Define middleware for all endpoints except login, register, and hello
+apigw:
+  - middleware:
+      handler: src/auth/token.utill.authenticate
+      events:
+        - http:
+            path: '*'
+            method: '*'
+      exclude:
+        - path: 'login'
+        - path: 'register'
+        - path: 'hello'

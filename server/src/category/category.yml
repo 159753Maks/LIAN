@@ -1,0 +1,24 @@
+createCategory:
+  handler: src/category/handler/category-create-handler.categoryCreateHandler
+  events:
+    - http:
+        path: category
+        method: post
+updateCategory:
+  handler: src/category/handler/category-update-handler.categoryUpdateHandler
+  events:
+    - http:
+        path: category/{categoryId}
+        method: post
+deleteCategory:
+  handler: src/category/handler/category-delete-handler.deleteCreateHandler
+  events:
+    - http:
+        path: category/{categoryId}
+        method: delete
+getCategoryById:
+  handler: src/category/handler/category-get-by-id-handler.categoryGetByIdHandler
+  events:
+    - http:
+        path: category/{categoryId}
+        method: get

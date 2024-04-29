@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/about_us.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/media.css">
+  <title>About_us</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131" height="35"
+          viewBox="0 0 131 35">
+          <image id="logo" width="131" height="35"
+            xlink:href="data:image/png;base64,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" />
+        </svg>
+      </div>
+    </a>
+
+    <nav class="header_nav">
+      <a href="About_us.html">About us</a>
+      <a href="about_project.html">Project</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="about_agency">
+    <div class="agency_text">
+      <h1>ABOUT THE AGENCY</h1>
+      <p>WELCOME TO LIAN</p>
+    </div>
+  </div>
+
+  <div class="block_1">
+
+    <div class="block_1-img">
+      <img src="/img/Clip2.jpg" alt="Error">
+    </div>
+
+    <div class="block_1-text">
+
+      <div class="our_story">
+        <h2>OUR STORY</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+          dolore magna aliquam erat volutpat.
+          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.
+        </p>
+        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+          possim assum.
+          Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.
+        </p>
+      </div>
+
+      <div class="our_skills">
+        <h2>OUR SKILLS</h2>
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="553.055" height="54"
+          viewBox="0 0 553.055 54">
+          <defs>
+            <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" />
+              <stop offset="1" stop-color="#8b8b8b" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-2" x1="1" y1="0.15" x2="0" y2="0.85" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0ca32c" />
+              <stop offset="1" stop-color="#2ca2cd" />
+            </linearGradient>
+          </defs>
+          <g id="ITEM1" transform="translate(-811.945 -863)">
+            <g id="Bars">
+              <rect id="base" width="552" height="10" transform="translate(813 900)" fill="#ebebeb" />
+              <g id="progress_bar" data-name="progress bar">
+                <rect id="progress_bar-2" data-name="progress bar" width="490" height="2" transform="translate(816 904)"
+                  fill="#a1a1a1" />
+                <path id="Gradient_Overlay" data-name="Gradient Overlay" d="M816,904h490v2H816Z" opacity="0.8"
+                  fill="url(#linear-gradient)" />
+              </g>
+              <g id="Ellipse_5" data-name="Ellipse 5">
+                <circle id="Ellipse_5-2" data-name="Ellipse 5" cx="4" cy="4" r="4" transform="translate(1302 901)"
+                  fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+                <path id="Gradient_Overlay-2" data-name="Gradient Overlay"
+                  d="M1306,901a4,4,0,1,1-4,4A4,4,0,0,1,1306,901Z" opacity="0.8" fill="url(#linear-gradient-2)" />
+              </g>
+            </g>
+            <g id="Percentage">
+              <rect id="Rectangle_48" data-name="Rectangle 48" width="40" height="21" transform="translate(1305 863)"
+                fill="#041608" />
+              <path id="Rectangle_49" data-name="Rectangle 49" d="M1311,877.343l2,5.657-8,8v-8Z" fill="#041608" />
+              <text id="_90_" data-name="90%" transform="translate(1308.5 864.34)" fill="#fff" font-size="12"
+                font-family="Lato-Regular, Lato">
+                <tspan x="4.981" y="12">90%</tspan>
+              </text>
+            </g>
+            <text id="Photoshop" transform="translate(811.945 864)" fill="#2f302f" font-size="16"
+              font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="0.025em">
+              <tspan x="0" y="17">Photoshop</tspan>
+            </text>
+          </g>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="557.055" height="54"
+          viewBox="0 0 557.055 54">
+          <defs>
+            <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" />
+              <stop offset="1" stop-color="#8b8b8b" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-2" x1="1" y1="0.15" x2="0" y2="0.85" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0ca32c" />
+              <stop offset="1" stop-color="#2ca2cd" />
+            </linearGradient>
+          </defs>
+          <g id="ITEM2" transform="translate(-812.945 -928)">
+            <g id="Bars">
+              <rect id="base" width="552" height="10" transform="translate(814 965)" fill="#ebebeb" />
+              <g id="progress_bar" data-name="progress bar">
+                <rect id="progress_bar-2" data-name="progress bar" width="520" height="2" transform="translate(817 969)"
+                  fill="#a1a1a1" />
+                <path id="Gradient_Overlay" data-name="Gradient Overlay" d="M817,969h520v2H817Z" opacity="0.8"
+                  fill="url(#linear-gradient)" />
+              </g>
+              <g id="Ellipse_5" data-name="Ellipse 5">
+                <circle id="Ellipse_5-2" data-name="Ellipse 5" cx="4" cy="4" r="4" transform="translate(1327 966)"
+                  fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+                <path id="Gradient_Overlay-2" data-name="Gradient Overlay"
+                  d="M1331,966a4,4,0,1,1-4,4A4,4,0,0,1,1331,966Z" opacity="0.8" fill="url(#linear-gradient-2)" />
+              </g>
+            </g>
+            <g id="Percentage">
+              <rect id="Rectangle_48" data-name="Rectangle 48" width="40" height="21" transform="translate(1330 928)"
+                fill="#041608" />
+              <path id="Rectangle_49" data-name="Rectangle 49" d="M1336,942.343l2,5.657-8,8v-8Z" fill="#041608" />
+              <text id="_95_" data-name="95%" transform="translate(1333.5 929.34)" fill="#fff" font-size="12"
+                font-family="Lato-Regular, Lato">
+                <tspan x="4.981" y="12">95%</tspan>
+              </text>
+            </g>
+            <text id="Branding" transform="translate(812.945 929)" fill="#2f302f" font-size="16"
+              font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="0.025em">
+              <tspan x="0" y="17">Branding</tspan>
+            </text>
+          </g>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="553.055" height="54"
+          viewBox="0 0 553.055 54">
+          <defs>
+            <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" />
+              <stop offset="1" stop-color="#8b8b8b" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-2" x1="1" y1="0.15" x2="0" y2="0.85" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0ca32c" />
+              <stop offset="1" stop-color="#2ca2cd" />
+            </linearGradient>
+          </defs>
+          <g id="ITEM3" transform="translate(-811.945 -993)">
+            <g id="Bars">
+              <rect id="base" width="552" height="10" transform="translate(813 1030)" fill="#ebebeb" />
+              <g id="progress_bar" data-name="progress bar">
+                <rect id="progress_bar-2" data-name="progress bar" width="276" height="2"
+                  transform="translate(816 1034)" fill="#a1a1a1" />
+                <path id="Gradient_Overlay" data-name="Gradient Overlay" d="M816,1034h276v2H816Z" opacity="0.8"
+                  fill="url(#linear-gradient)" />
+              </g>
+              <g id="Ellipse_5" data-name="Ellipse 5">
+                <circle id="Ellipse_5-2" data-name="Ellipse 5" cx="4" cy="4" r="4" transform="translate(1090 1031)"
+                  fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+                <path id="Gradient_Overlay-2" data-name="Gradient Overlay"
+                  d="M1094,1031a4,4,0,1,1-4,4A4,4,0,0,1,1094,1031Z" opacity="0.8" fill="url(#linear-gradient-2)" />
+              </g>
+            </g>
+            <g id="Percentage">
+              <rect id="Rectangle_48" data-name="Rectangle 48" width="40" height="21" transform="translate(1093 993)"
+                fill="#041608" />
+              <path id="Rectangle_49" data-name="Rectangle 49" d="M1099,1007.343l2,5.657-8,8v-8Z" fill="#041608" />
+              <text id="_50_" data-name="50%" transform="translate(1096.5 994.34)" fill="#fff" font-size="12"
+                font-family="Lato-Regular, Lato">
+                <tspan x="4.981" y="12">50%</tspan>
+              </text>
+            </g>
+            <text id="Photography" transform="translate(811.945 994)" fill="#2f302f" font-size="16"
+              font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="0.025em">
+              <tspan x="0" y="17">Photography</tspan>
+            </text>
+          </g>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="553.055" height="54"
+          viewBox="0 0 553.055 54">
+          <defs>
+            <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+              <stop offset="0" />
+              <stop offset="1" stop-color="#8b8b8b" />
+            </linearGradient>
+            <linearGradient id="linear-gradient-2" x1="1" y1="0.15" x2="0" y2="0.85" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#0ca32c" />
+              <stop offset="1" stop-color="#2ca2cd" />
+            </linearGradient>
+          </defs>
+          <g id="ITEM4" transform="translate(-812.945 -1058)">
+            <g id="Bars">
+              <rect id="base" width="552" height="10" transform="translate(814 1095)" fill="#ebebeb" />
+              <g id="progress_bar" data-name="progress bar">
+                <rect id="progress_bar-2" data-name="progress bar" width="450" height="2"
+                  transform="translate(817 1099)" fill="#a1a1a1" />
+                <path id="Gradient_Overlay" data-name="Gradient Overlay" d="M817,1099h450v2H817Z" opacity="0.8"
+                  fill="url(#linear-gradient)" />
+              </g>
+              <g id="Ellipse_5" data-name="Ellipse 5">
+                <circle id="Ellipse_5-2" data-name="Ellipse 5" cx="4" cy="4" r="4" transform="translate(1265 1096)"
+                  fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" />
+                <path id="Gradient_Overlay-2" data-name="Gradient Overlay"
+                  d="M1269,1096a4,4,0,1,1-4,4A4,4,0,0,1,1269,1096Z" opacity="0.8" fill="url(#linear-gradient-2)" />
+              </g>
+            </g>
+            <g id="Percentage">
+              <rect id="Rectangle_48" data-name="Rectangle 48" width="40" height="21" transform="translate(1268 1058)"
+                fill="#041608" />
+              <path id="Rectangle_49" data-name="Rectangle 49" d="M1274,1072.343l2,5.657-8,8v-8Z" fill="#041608" />
+              <text id="_85_" data-name="85%" transform="translate(1271.5 1059.34)" fill="#fff" font-size="12"
+                font-family="Lato-Regular, Lato">
+                <tspan x="4.981" y="12">85%</tspan>
+              </text>
+            </g>
+            <text id="Web_Design" data-name="Web Design" transform="translate(812.945 1059)" fill="#2f302f"
+              font-size="16" font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="0.025em">
+              <tspan x="0" y="17">Web Design</tspan>
+            </text>
+          </g>
+        </svg>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="block_2">
+
+    <div class="block-2-text">
+      <h1>AWESOME TEAM</h1>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        dolore magna aliquam erat volutpat.
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.
+      </p>
+    </div>
+
+    <div class="we">
+      <div class="workers">
+        <img src="/img/worker1.jpg" alt="Error">
+        <div class="workers-text">
+          <h1>LIAN JOY</h1>
+          <h2>CEO/Founder</h2>
+          <p>Lorem ipsum dolor sit amet, conse ctetuer adipi scing elit, sed diam nonu mmy nibh euis mod tinci </p>
+        </div>
+      </div>
+      <div class="workers">
+        <img src="/img/worker2.jpg" alt="Error">
+        <div class="workers-text">
+          <h1>ALBERT THANH</h1>
+          <h2>CEO/Founder</h2>
+          <p>Lorem ipsum dolor sit amet, conse ctetuer adipi scing elit, sed diam nonu mmy nibh euis mod tinci </p>
+        </div>
+      </div>
+      <div class="workers">
+        <img src="/img/worker3.jpg" alt="Error">
+        <div class="workers-text">
+          <h1>JENN PEREIRA</h1>
+          <h2>CEO/Founder</h2>
+          <p>Lorem ipsum dolor sit amet, conse ctetuer adipi scing elit, sed diam nonu mmy nibh euis mod tinci </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer_block">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131" height="35"
+          viewBox="0 0 131 35">
+          <image id="logo" width="131" height="35"
+            xlink:href="data:image/png;base64,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" />
+        </svg>
+      </div>
+
+      <div class="footer_text">
+        <p>© 2016 <span>MULITIX THEME</span> BY THEMEFORCES. ALL RIGHTS RESERVED.</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>
