@@ -5,6 +5,7 @@ import { DbError } from '../errors/db.error'
 import { ForbiddenError } from '../errors/forbidden.error'
 import { NotFoundError } from '../errors/not.found.error'
 
+// Функція для створення успішного відповіді з даними
 export const successResponse = (data: unknown): APIGatewayProxyResult => {
   return {
     statusCode: 200,
@@ -12,30 +13,31 @@ export const successResponse = (data: unknown): APIGatewayProxyResult => {
   }
 }
 
+// Функція для створення відповіді з помилкою
 export const errorResponse = (event: APIGatewayProxyEvent, err: unknown): APIGatewayProxyResult => {
-  if (err instanceof NotFoundError) {
+  if (err instanceof NotFoundError) { // Якщо помилка є типу NotFoundError
     return {
       statusCode: 404,
       body: JSON.stringify({
-        message: 'Resource not found',
+        message: 'Ресурс не знайдений',
         error: { name: err.name, message: err.message },
         input: event,
       }),
     }
-  } else if (err instanceof ForbiddenError) {
+  } else if (err instanceof ForbiddenError) { // Якщо помилка є типу ForbiddenError
     return {
       statusCode: 403,
       body: JSON.stringify({
-        message: 'Forbidden',
+        message: 'Заборонено',
         error: { name: err.name, message: err.message },
         input: event,
       }),
     }
-  } else if (err instanceof InternalServerError || err instanceof DbError) {
+  } else if (err instanceof InternalServerError || err instanceof DbError) { // Якщо помилка є типу InternalServerError або DbError
     return {
       statusCode: 409,
       body: JSON.stringify({
-        message: 'InternalServerError',
+        message: 'Помилка сервера',
         error: { name: err.name, message: err.message },
         input: event,
       }),
@@ -44,7 +46,7 @@ export const errorResponse = (event: APIGatewayProxyEvent, err: unknown): APIGat
   return {
     statusCode: 500,
     body: JSON.stringify({
-      message: 'Internal server error',
+      message: 'Помилка сервера',
       error: err,
       input: event,
     }),
