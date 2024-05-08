@@ -6,7 +6,6 @@ import { Logger } from 'winston' // Імпорт логгера для журн�
 import { generateToken } from '../../auth/token.utill' // Імпорт функції для генерації токенів
 import { dbExecute } from '../../db/generic/db.execute' // Імпорт функції для виконання запитів до бази даних
 import { ForbiddenError } from '../../errors/forbidden.error' // Імпорт класу помилки доступу
-import { NotFoundError } from '../../errors/not.found.error' // Імпорт класу помилки "не знайдено"
 import { UserDao } from '../dao/user.dao' // Імпорт DAO для взаємодії з таблицею користувачів
 import { SingUpInput } from '../interface/sing.up.input' // Імпорт інтерфейсу для даних реєстрації користувача
 import { UserDto } from '../interface/user.dto' // Імпорт інтерфейсу для об'єкта користувача

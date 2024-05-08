@@ -1,0 +1,240 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #fff;
+}
+
+.header .logo {
+    padding-left: 70px;
+}
+
+.header_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: #9C9C9C;
+    font-family: "Roboto-Bold";
+}
+
+.header_nav a:hover {
+    color: black;
+    transition: color ease-in-out .5s;
+    -webkit-transition: color ease-in-out .5s;
+    -moz-transition: color ease-in-out .5s;
+    -ms-transition: color ease-in-out .5s;
+    -o-transition: color ease-in-out .5s;
+}
+
+/*proj_block1*/
+.proj_block1 {
+    padding: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.proj_block1-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.text1 h1 {
+    font-family: "Roboto";
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.text1 p {
+    font-family: "Roboto-Bold";
+    font-size: 16px;
+    color: #999999;
+}
+
+.line {
+    background-color: #CCCCCC;
+}
+
+.text2 {
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 30px;
+    color: #999999;
+}
+
+.text3 p {
+    font-family: "Roboto";
+    font-size: 40px;
+    color: black;
+}
+
+.text4 h1 {
+    font-family: "Roboto-Bold";
+    font-size: 16px;
+}
+
+.text4 p {
+    font-family: "Roboto";
+    font-size: 16px;
+    color: #999999;
+}
+
+
+section.wrapper {
+    margin-left: 50px;
+    width: 100%;
+}
+
+.photo-gallery__wrapper {
+    padding-top: 20px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-gallery__wrapper div {
+    height: 80px;
+    overflow: hidden;
+}
+
+.image-holder {
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.image-holder img {
+    width: 800px;
+    height: 400px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.image-thumbnail img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    transition: transform 0.35s;
+    transform: scale(1);
+    filter: grayscale(1);
+}
+
+.image-thumbnail img.active {
+    filter: none;
+}
+
+.image-thumbnail img:hover {
+    transition: transform 0.35s, filter 0.35s linear;
+    transform: scale(1.12);
+    filter: none;
+}
+
+.buy_btn {
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(37, 202, 37);
+    font-family: "Roboto";
+    font-size: 25px;
+    line-height: 30px;
+}
+
+
+/*proj_block2*/
+.proj_block2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.proj_block2-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.proj_block2-text h1 {
+    font-family: "Roboto-Light";
+    font-size: 30px;
+}
+
+.proj_block2-text p {
+    font-family: "Roboto";
+    font-size: 14px;
+    text-align: center;
+}
+
+.proj_block2-photo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.block2-photo1 {
+    background: url(/img/01.jpg) center/cover no-repeat;
+}
+
+.block2-photo2 {
+    background: url(/img/02.jpg) center/cover no-repeat;
+}
+
+.block2-photo3 {
+    background: url(/img/grid\ 8.png) center/cover no-repeat;
+}
+
+/*FOOTER*/
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.footer_block {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer_text p {
+    font-family: "Roboto";
+    font-size: 13px;
+    color: #9C9C9C;
+}
+
+.footer_text span {
+    color: #000000;
+}

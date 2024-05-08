@@ -1,0 +1,216 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #fff;
+}
+
+.header .logo {
+    padding-left: 70px;
+}
+
+.header_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: #9C9C9C;
+    font-family: "Roboto-Bold";
+}
+
+.header_nav a:hover {
+    color: black;
+    transition: color ease-in-out .5s;
+    -webkit-transition: color ease-in-out .5s;
+    -moz-transition: color ease-in-out .5s;
+    -ms-transition: color ease-in-out .5s;
+    -o-transition: color ease-in-out .5s;
+}
+
+/*Block1*/
+
+.wrapper {
+    position: relative;
+}
+
+.wrapper>input {
+    display: none;
+}
+
+.wrapper .controls {
+    position: absolute;
+}
+
+.wrapper label:after {
+    border: none;
+    content: " ";
+    display: block;
+    position: absolute;
+}
+
+.wrapper label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    background: white;
+}
+
+.wrapper label:hover,
+#slide1:checked~.controls label:nth-of-type(1),
+#slide2:checked~.controls label:nth-of-type(2),
+#slide3:checked~.controls label:nth-of-type(3) {
+    border: 8px solid #000000;
+    transition: border ease-in-out .5s;
+    -webkit-transition: border ease-in-out .5s;
+    -moz-transition: border ease-in-out .5s;
+    -ms-transition: border ease-in-out .5s;
+    -o-transition: border ease-in-out .5s;
+}
+
+.slider {
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    position: absolute;
+    width: inherit;
+}
+
+.slide1 {
+    background: url(/img/bcc_slider_1.jpg) center/cover no-repeat;
+}
+
+.slide1_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.slide1_text h1 {
+    text-align: center;
+    font-family: "Roboto-Light";
+    color: white;
+    background-color: black;
+}
+
+.slide1_text p {
+    text-align: center;
+    font-family: "Roboto-Light";
+    font-size: 18px;
+}
+
+.slide2 {
+    background: url(http://habrastorage.org/files/3e1/95d/c7f/3e195dc7f5a64469807f49a14f97ba0e.jpg) center/cover no-repeat;
+}
+
+.slide3 {
+    background-image: url(http://habrastorage.org/files/663/6b1/d4f/6636b1d4f8e643d29eab8c192fc1cea3.jpg);
+}
+
+#slide1:checked~.slider>.slide1,
+#slide2:checked~.slider>.slide2,
+#slide3:checked~.slider>.slide3 {
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+/*Main*/
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav .btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background: none;
+    cursor: pointer;
+    font-family: "Roboto-Bold";
+    font-size: 14px;
+    text-decoration: none;
+    color: #777777;
+    -webkit-transition: color ease-in-out .5s;
+    -moz-transition: color ease-in-out .5s;
+    transition: color ease-in-out .5s;
+    -ms-transition: color ease-in-out .5s;
+}
+
+.nav .btn:hover {
+    color: #000000;
+}
+
+.show {
+    display: block;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 50vh;
+}
+
+/*FOOTER*/
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.footer_block {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer_text p {
+    font-family: "Roboto";
+    font-size: 13px;
+    color: #9C9C9C;
+}
+
+.footer_text span {
+    color: #000000;
+}
