@@ -1,31 +1,32 @@
 service: lian
-frameworkVersion: '3'
-plugins:
-  - serverless-offline
-  - serverless-plugin-typescript
-  - serverless-apigw-plugin
+frameworkVersion: '3'  # Версія фреймворку Serverless
 
-provider:
+plugins:  # Плагіни, які використовуються у проекті
+  - serverless-offline  # Плагін для локального запуску сервера
+  - serverless-plugin-typescript  # Плагін для підтримки TypeScript
+  - serverless-apigw-plugin  # Плагін для роботи з API Gateway AWS
+
+provider:  # Налаштування провайдера (AWS)
   name: aws
-  runtime: nodejs18.x
-  environment:
-    PORT: 8000
+  runtime: nodejs18.x  # Версія Node.js, яка використовується провайдером
+  environment:  # Зміння середовища
+    PORT: 8000  # Порт, на якому буде працювати сервер
 
-functions:
-  - ${file(src/hello.yml)}
-  - ${file(src/product/product.yml)}
-  - ${file(src/user/user.yml)}
-  - ${file(src/category/category.yml)}
+functions:  # Встановлення функцій додатку
+  - ${file(src/hello.yml)}  # Функція, яка встановлена у файлі hello.yml
+  - ${file(src/product/product.yml)}  # Функція, яка встановлена у файлі product.yml
+  - ${file(src/user/user.yml)}  # Функція, яка встановлена у файлі user.yml
+  - ${file(src/category/category.yml)}  # Функція, яка встановлена у файлі category.yml
 
-# Define middleware for all endpoints except login, register, and hello
+# Встановлення middleware для всіх ендпоінтів, крім login, register та hello
 apigw:
   - middleware:
-      handler: src/auth/token.utill.authenticate
+      handler: src/auth/token.utill.authenticate  # Обработчик middleware
       events:
-        - http:
-            path: '*'
-            method: '*'
-      exclude:
-        - path: 'login'
-        - path: 'register'
-        - path: 'hello'
+        - http:  # Подія HTTP
+            path: '*'  # Шаблон шляху
+            method: '*'  # Шаблон методу
+      exclude:  # Виключення
+        - path: 'login'  # Виключити ендпоінт login
+        - path: 'register'  # Виключити ендпоінт register
+        - path: 'hello'  # Виключити ендпоінт hello
