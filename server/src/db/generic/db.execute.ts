@@ -1,24 +1,26 @@
 import { Knex, knex } from 'knex'
 
-import { DbError } from '../../errors/db.error'
-import { knexConfig } from '../knex.config'
+import { DbError } from '../../errors/db.error' // Імпорт класу помилки бази даних
+import { knexConfig } from '../knex.config' // Імпорт конфігурації Knex
 
+// Функція для виконання запитів до бази даних
 export async function dbExecute<T>(func: (db: Knex) => Promise<T>): Promise<T> {
-  const db: Knex = knex(knexConfig['development'])
+  const db: Knex = knex(knexConfig['development']) // Ініціалізація підключення до бази даних
+
   try {
-    // Connect to the database
+    // Підключення до бази даних
     await db.raw('SELECT 1')
 
-    // Execute the provided function with the Knex instance
+    // Виконання переданої функції з екземпляром Knex
     const result = await func(db)
 
-    // Close the connection
+    // Закриття з'єднання з базою даних
     await db.destroy()
 
     return result
   } catch (error) {
-    // If an error occurs, throw the error and close the connection
+    // Якщо виникає помилка, викидання помилки та закриття з'єднання
     await db.destroy()
-    throw new DbError(JSON.stringify(error))
+    throw new DbError(JSON.stringify(error)) // Викидання власної помилки бази даних з описом помилки
   }
 }
