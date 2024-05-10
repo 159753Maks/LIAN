@@ -4,10 +4,6 @@ body {
     align-items: center;
 }
 
-
-
-/*Block1*/
-
 .wrapper {
     position: relative;
 }
@@ -103,5 +99,3 @@ body {
     -o-transform: scale(1);
     transform: scale(1);
 }
-
-/*Main*/
