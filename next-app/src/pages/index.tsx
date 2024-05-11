@@ -3,6 +3,11 @@ import { useEffect } from "react";
 import ProductComponent from "@/components/product.component";
 import FooterComponent from "@/components/footer.component";
 import NavigationComponent from "@/components/navigation.component";
+import './main.css';
+import './navigation.css';
+import './header.css';
+import './footer.css';
+import './product_crds.css';
 
 export default function Home() {
   useEffect(() => {

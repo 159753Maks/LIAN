@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contact.css'; // Подключаем стили CSS
+import './contact.css'; // Подключаем стили CSS
 
 // Компонент для текстовой информации офиса
 function OfficeInfo() {
