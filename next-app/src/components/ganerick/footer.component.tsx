@@ -1,8 +1,10 @@
+import styles from '../../public/css/footer.module.css';
+
 export default function FooterComponent() {
     return (
-        <footer className="footer">
-            <div className="footer_block">
-                <div className="footer_logo">
+        <footer className={styles.footer}>
+            <div className={styles.footer_block}>
+                <div className={styles.footer_logo}>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="131"
                         height="35" viewBox="0 0 131 35">
                         <image id="logo" width="131" height="35"
@@ -10,7 +12,7 @@ export default function FooterComponent() {
                     </svg>
                 </div>
 
-                <div className="footer_text">
+                <div className={styles.footer_text}>
                     <p>© 2016 <span>MULITIX THEME</span> BY THEMEFORCES. ALL RIGHTS RESERVED.</p>
                 </div>
 

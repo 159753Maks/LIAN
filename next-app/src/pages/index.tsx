@@ -1,13 +1,9 @@
-import HeaderComponent from "@/components/header.component";
+import HeaderComponent from "@/components/ganerick/header.component";
 import { useEffect } from "react";
-import ProductComponent from "@/components/product.component";
-import FooterComponent from "@/components/footer.component";
-import NavigationComponent from "@/components/navigation.component";
-import './main.css';
-import './navigation.css';
-import './header.css';
-import './footer.css';
-import './product_crds.css';
+import ProductComponent from "@/components/main/product.component";
+import FooterComponent from "@/components/ganerick/footer.component";
+import NavigationComponent from "@/components/main/navigation.component";
+import styles from '@/public/css/main.module.css';
 
 export default function Home() {
   useEffect(() => {
@@ -17,26 +13,26 @@ export default function Home() {
 
   // const items = await getProducts(props)
   return (
-    <div>
+    <div className={styles.main_container}>
       <HeaderComponent />
 
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <input type="radio" name="point" id="slide1" checked />
         <input type="radio" name="point" id="slide2" />
         <input type="radio" name="point" id="slide3" />
         <input type="radio" name="point" id="slide4" />
         <input type="radio" name="point" id="slide5" />
-        <div className="slider">
-          <div className="slides slide1">
-            <div className="slide1_text">
+        <div className={styles.slider}>
+          <div className={[styles.slides, styles.slide1].join('')}>
+            <div className={styles.slide1_text}>
               <h1>LIAN CREATIVE AGENCY</h1>
               <p>MINIMAL FREELANCE PORTFOLIO </p>
             </div>
           </div>
-          <div className="slides slide2"></div>
-          <div className="slides slide3"></div>
+          <div className={[styles.slides, styles.slide2].join('')}></div>
+          <div className={[styles.slides, styles.slide3].join('')}></div>
         </div>
-        <div className="controls">
+        <div className={styles.controls}>
           <label htmlFor="slide1"></label>
           <label htmlFor="slide2"></label>
           <label htmlFor="slide3"></label>

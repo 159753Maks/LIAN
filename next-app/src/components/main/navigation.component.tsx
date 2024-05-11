@@ -1,3 +1,5 @@
+import '../../public/css/navigation.module.css';
+
 export default function NavigationComponent() {
     return (
         <div className="main">

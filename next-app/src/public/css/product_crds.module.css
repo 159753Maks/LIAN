@@ -1,11 +1,11 @@
-section {
+.product-card-conteiner {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     min-height: 50vh;
 }
 
-a {
+.product-link {
     text-decoration: none;
 }
 

@@ -1,3 +1,5 @@
+import '../../public/css/header.module.css';
+
 export default function HeaderComponent() {
   return (
     <header className="header">
