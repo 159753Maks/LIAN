@@ -5,8 +5,9 @@ export interface ListProductInput {
   maxCost?: number
   minCount?: number
   maxCount?: number
-  limit: number
-  offset: number
-  asc: boolean
+  limit?: number
+  offset?: number
+  asc?: boolean
   sortField: string
+  categoryIds?: Array<string>
 }

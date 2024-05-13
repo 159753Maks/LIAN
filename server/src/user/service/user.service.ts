@@ -3,7 +3,7 @@ import { Knex } from 'knex' // Імпорт Knex для роботи з базо
 import { v4 as uuidv4 } from 'uuid' // Імпорт генератора унікальних ідентифікаторів
 import { Logger } from 'winston' // Імпорт логгера для журналювання дій
 
-import { generateToken } from '../../auth/token.utill' // Імпорт функції для генерації токенів
+import { generateToken } from '../../auth/token.util' // Імпорт функції для генерації токенів
 import { dbExecute } from '../../db/generic/db.execute' // Імпорт функції для виконання запитів до бази даних
 import { ForbiddenError } from '../../errors/forbidden.error' // Імпорт класу помилки доступу
 import { UserDao } from '../dao/user.dao' // Імпорт DAO для взаємодії з таблицею користувачів
@@ -55,7 +55,7 @@ class UserService {
       throw new ForbiddenError('invalid email or password')
     }
 
-    const isCorrect = await bcrypt.compare(user.password, password)
+    const isCorrect = await bcrypt.compare(password, user.password)
 
     if (!isCorrect) {
       logger.warn('user.service.singIn.error.not-correct')
@@ -63,7 +63,7 @@ class UserService {
     }
 
     logger.info('user.service.singIn.end')
-    return generateToken(user.uid)
+    return generateToken(user.uid, user.role)
   }
 
   public static async hashPassword(password: string): Promise<string> {

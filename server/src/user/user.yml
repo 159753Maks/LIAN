@@ -10,4 +10,16 @@ singIn:
     - http:
         path: singIn
         method: post
+createUser:
+  handler: src/user/handler/create-user-handler.createUserHandler
+  events:
+    - http:
+        path: user
+        method: post
+updateUser:
+  handler: src/user/handler/update-user-handler.updateUserHandler
+  events:
+    - http:
+        path: user/{userId}
+        method: post
 

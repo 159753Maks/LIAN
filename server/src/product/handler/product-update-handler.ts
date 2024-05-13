@@ -5,19 +5,29 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger'
 import { errorResponse, successResponse } from '../../generic/responces'
 import { ProductService } from '../service/product.service'
 import { validateUpdateProduct } from '../validation/update.product.validation'
+import { applyMiddleware } from '../../utill/middlware.util'
+import { authenticate } from '../../auth/auth-middleware'
+import { notUsersMiddleware } from '../../auth/not-users-middleware'
+import { createAppLogger } from 'src/db/generic/app.logger'
 
 export const productUpdateHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _context: Context,
+  context: Context,
 ): Promise<APIGatewayProxyResult> => {
   const logger = createAppLogger()
+
   try {
-    const data = validateUpdateProduct(event)
+    const { appContext, appEvent } = await applyMiddleware(
+      event,
+      context,
+      authenticate,
+      notUsersMiddleware,
+    )
+
+    const data = validateUpdateProduct(appEvent)
     const product = await ProductService.updateOne(data, logger)
 
     return successResponse(product)

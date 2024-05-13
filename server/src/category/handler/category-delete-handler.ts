@@ -5,20 +5,29 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger'
-import { errorResponse, successResponse } from '../../generic/responces'
-import { validateUid } from '../../generic/validate'
-import { CategoryService } from '../service/category.service'
+import { applyMiddleware } from 'src/utill/middlware.util'
+import { authenticate } from 'src/auth/auth-middleware'
+import { notUsersMiddleware } from 'src/auth/not-users-middleware'
+import { validateUid } from 'src/generic/validate'
+import { CategoryService } from 'src/category/service/category.service'
+import { errorResponse, successResponse } from 'src/generic/responces'
+import { createAppLogger } from 'src/db/generic/app.logger'
 
 export const categoryDeleteHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _context: Context,
+  context: Context,
 ): Promise<APIGatewayProxyResult> => {
   const logger = createAppLogger()
+
   try {
+    const { appContext, appEvent } = await applyMiddleware(
+      event,
+      context,
+      authenticate,
+      notUsersMiddleware,
+    )
     logger.info('category.delete.handler.start')
-    const { uid } = validateUid(event, 'categoryId')
+    const { uid } = validateUid(appEvent, 'categoryId')
 
     logger.info('category.delete.handler.validated')
     const result = await CategoryService.deleteOne(uid, logger)

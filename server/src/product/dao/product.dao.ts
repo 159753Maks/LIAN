@@ -6,6 +6,7 @@ import { CategoryProductDao } from '../../categoryProduct/dao/category.product.d
 import { CategoryProductDto } from '../../categoryProduct/interface/category.product.dto'
 import { ListProductInput } from '../interface/list.product.input'
 import { ProductDto } from '../interface/product.dto'
+import { mapProducts } from 'src/product/dao/product.mapper'
 
 class ProductDao {
   static async findAllPaginated(
@@ -14,35 +15,68 @@ class ProductDao {
     logger: Logger,
   ): Promise<Array<ProductDto>> {
     logger.info('product.dao.findAllPaginated.start')
-    const builder = queryBuilder<ProductDto>('product').select('*')
+
+    const filterQuery = queryBuilder('product').select('uid')
 
     if (filter.title) {
-      queryBuilder.andWhereLike('title', `%${filter.title}%`)
+      filterQuery.andWhereLike('title', `%${filter.title}%`)
     }
     if (filter.description) {
-      queryBuilder.andWhereLike('description', `%${filter.description}%`)
+      filterQuery.andWhereLike('description', `%${filter.description}%`)
     }
     if (filter.minCost) {
-      queryBuilder.andWhere('cost', '>=', filter.minCost)
+      filterQuery.andWhere('cost', '>=', filter.minCost)
     }
     if (filter.maxCost) {
-      queryBuilder.andWhere('cost', '<=', filter.maxCost)
+      filterQuery.andWhere('cost', '<=', filter.maxCost)
     }
     if (filter.minCount) {
-      queryBuilder.andWhere('count', '>=', filter.minCount)
+      filterQuery.andWhere('count', '>=', filter.minCount)
     }
     if (filter.maxCount) {
-      queryBuilder.andWhere('count', '<=', filter.maxCount)
+      filterQuery.andWhere('count', '<=', filter.maxCount)
     }
     if (filter.limit) {
-      queryBuilder.limit(filter.limit)
+      filterQuery.limit(filter.limit)
     }
     if (filter.offset) {
-      queryBuilder.offset(filter.offset, {})
+      filterQuery.offset(filter.offset, {})
     }
 
-    queryBuilder.orderBy(filter.sortField, filter.asc ? 'ASC' : 'DESC')
-    return builder
+    if (filter.categoryIds?.length) {
+      const subQuery = queryBuilder('categoryProduct')
+        .select('productUid')
+        .whereIn('categoryUid', filter.categoryIds)
+
+      filterQuery.whereIn('product.uid', subQuery)
+    }
+
+    filterQuery.orderBy(filter.sortField, filter.asc ? 'ASC' : 'DESC')
+
+    const uidsResult = await filterQuery
+
+    const queryResult = await queryBuilder<ProductDto>('product')
+      .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
+      .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
+      .select(
+        'product.uid as uid',
+        'product.title as title',
+        'product.description as description',
+        'product.cost as cost',
+        'product.count as count',
+        'product.subDescription as subDescription',
+        'categoryProduct.categoryUid as categoryUid',
+        'image.uid as imageUid',
+        'image.fileName as fileName',
+        'image.url as url',
+      )
+      .whereIn(
+        'product.uid',
+        uidsResult.map((el) => el.uid),
+      )
+
+    return mapProducts(queryResult)
   }
 
   static async findAllByIds(
@@ -51,40 +85,102 @@ class ProductDao {
     logger: Logger,
   ): Promise<Array<ProductDto>> {
     logger.info('product.dao.findAllByIds.start')
-    return queryBuilder<ProductDto>('product').select('*').whereIn('uid', uids)
+    const queryResult = await queryBuilder<ProductDto>('product')
+      .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
+      .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
+      .select(
+        'product.uid as uid',
+        'product.title as title',
+        'product.description as description',
+        'product.cost as cost',
+        'product.count as count',
+        'product.subDescription as subDescription',
+        'categoryProduct.categoryUid as categoryUid',
+        'image.uid as imageUid',
+        'image.fileName as fileName',
+        'image.url as url',
+      )
+      .whereIn('product.uid', uids)
+
+    if (!queryResult.length) {
+      return []
+    }
+
+    return mapProducts(queryResult)
   }
 
-  static async findOne(
+  static async findOneById(
     queryBuilder: Knex,
     uid: string,
     logger: Logger,
   ): Promise<ProductDto | undefined> {
     logger.info('product.dao.findOne.start')
-    return queryBuilder<ProductDto>('product').select('*').where({ uid }).first()
+    const queryResult = await queryBuilder<ProductDto>('product')
+      .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
+      .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
+      .select(
+        'product.uid as uid',
+        'product.title as title',
+        'product.description as description',
+        'product.cost as cost',
+        'product.count as count',
+        'product.subDescription as subDescription',
+        'categoryProduct.categoryUid as categoryUid',
+        'image.uid as imageUid',
+        'image.fileName as fileName',
+        'image.url as url',
+      )
+      .where('product.uid', uid)
+
+    if (!queryResult.length) {
+      return undefined
+    }
+
+    return mapProducts(queryResult)[0]
   }
 
   static async insertOne(queryBuilder: Knex, data: ProductDto, logger: Logger): Promise<void> {
     logger.info('product.dao.insertOne.start')
     const trx = await queryBuilder.transaction()
-    await trx<ProductDto>('product').insert({
-      uid: data.uid,
-      title: data.title,
-      description: data.description,
-      cost: data.cost,
-      count: data.count,
-    })
+    try {
+      await trx<ProductDto>('product').insert({
+        uid: data.uid,
+        title: data.title,
+        description: data.description,
+        cost: data.cost,
+        count: data.count,
+      })
 
-    if (data.categoryIds?.length) {
-      await trx<CategoryProductDto>('categoryProduct').insert(
-        data.categoryIds.map((uid) => ({
-          uid: uuidv4(),
-          productUid: data.uid,
-          categoryUid: uid,
-        })),
-      )
+      if (data.categoryIds?.length) {
+        await CategoryProductDao.insert(
+          trx,
+          data.categoryIds.map((uid) => ({
+            uid: uuidv4(),
+            productUid: data.uid,
+            categoryUid: uid,
+          })),
+          logger,
+        )
+      }
+
+      if (data.imgIds?.length) {
+        await trx('productImage').insert(
+          data.imgIds.map((uid) => ({
+            uid: uuidv4(),
+            productUid: data.uid,
+            imageUid: uid,
+          })),
+        )
+      }
+
+      await trx.commit()
+    } catch (error) {
+      await trx.rollback()
+      throw error
     }
 
-    await trx.commit()
     logger.info('product.dao.insertOne.end')
     return
   }
@@ -92,31 +188,49 @@ class ProductDao {
   static async updateOne(queryBuilder: Knex, data: ProductDto, logger: Logger): Promise<void> {
     logger.info('product.dao.updateOne.start')
     const trx = await queryBuilder.transaction()
-    await trx<ProductDto>('product')
-      .update({
-        title: data.title,
-        description: data.description,
-        cost: data.cost,
-        count: data.count,
-      })
-      .where({ uid: data.uid })
 
-    await CategoryProductDao.deleteAllByProductUids(trx, [data.uid], logger)
+    try {
+      await trx<ProductDto>('product')
+        .update({
+          title: data.title,
+          description: data.description,
+          cost: data.cost,
+          count: data.count,
+        })
+        .where({ uid: data.uid })
 
-    if (data.categoryIds?.length) {
-      await CategoryProductDao.insert(
-        trx,
-        data.categoryIds.map((uid) => ({
-          uid: uuidv4(),
-          productUid: data.uid,
-          categoryUid: uid,
-        })),
-        logger,
-      )
+      if (data.categoryIds?.length) {
+        await CategoryProductDao.deleteAllByProductUids(trx, [data.uid], logger)
+        await CategoryProductDao.insert(
+          trx,
+          data.categoryIds.map((uid) => ({
+            uid: uuidv4(),
+            productUid: data.uid,
+            categoryUid: uid,
+          })),
+          logger,
+        )
+      }
+
+      if (data.imgIds?.length) {
+        await trx<CategoryProductDto>('productImage').where('productUid', data.uid).delete()
+
+        await trx('productImage').insert(
+          data.imgIds.map((uid) => ({
+            uid: uuidv4(),
+            productUid: data.uid,
+            imageUid: uid,
+          })),
+        )
+      }
+
+      await trx.commit()
+    } catch (error) {
+      await trx.rollback()
+      throw error
     }
 
-    trx.commit()
-    logger.info('product.dao.updateOne.end')
+    logger.info('product.dao.insertOne.end')
     return
   }
 

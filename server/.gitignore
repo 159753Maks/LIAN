@@ -1,6 +1,8 @@
 /.idea/
 /.build
 
+/docker/volume
+
 /docker/data
 # package directories
 node_modules

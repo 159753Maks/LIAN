@@ -1,23 +1,43 @@
-import '../../public/css/product_crds.module.css';
+interface ProductComponentProps {
+  title: string;
+  description: string;
+  subDescription: string;
+  img: string;
+  cost: string;
+}
 
-export default function ProductComponent(props: { img: string, cost: string }) {
+export default function ProductComponent(props: ProductComponentProps) {
   return (
-    <div className='product-card-conteiner'>
-      <div className="product-card spacing">
-        <a href="/product_template.html" className="product-link">
-          <div className="product-thumb">
-            <img src={props.img} />
+    <div className="flex justify-center space-x-10">
+      <div className="max-w-md bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+        <a href="/product" className="block bg-rose-100">
+          <div className="h-72 w-72">
+            <img
+              className="object-cover w-full h-full"
+              src={props.img}
+              alt="Product"
+            />
           </div>
         </a>
-        <div className="product-details">
-          <span className="product-category">T-Shirt</span>
-          <h4><a href="#" className="product-link">New T-Shirt For Man</a></h4>
-          <p>New Import T-Shirt For Man Very Rare Collection, If You Want Order Right Now</p>
-          <div className="product-bottom-details">
-            <div className="product-price">{props.cost}</div>
-            <div className="product-links">
-              <a href="#"><i className="fa fa-heart"></i></a>
-              <a href="#"><i className="fa fa-shopping-cart"></i></a>
+        <div className="p-6">
+          <span className="block text-xs font-semibold text-blue-300 uppercase">
+            {props.title}
+          </span>
+          <h4 className="mt-2 text-lg font-semibold text-blue-400">
+            <a href="#" className="hover:text-red-500">
+              {props.subDescription}
+            </a>
+          </h4>
+          <p className="mt-2 text-gray-300">{props.description}</p>
+          <div className="mt-4 flex justify-between items-center">
+            <div className="text-xl font-bold text-red-500">{props.cost}</div>
+            <div className="flex space-x-2">
+              <a href="#" className="text-blue-300 hover:text-red-500">
+                <i className="fa fa-heart"></i>
+              </a>
+              <a href="#" className="text-blue-300 hover:text-red-500">
+                <i className="fa fa-shopping-cart"></i>
+              </a>
             </div>
           </div>
         </div>

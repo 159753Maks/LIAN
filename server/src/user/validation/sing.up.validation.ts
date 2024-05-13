@@ -2,6 +2,7 @@ import { APIGatewayProxyEvent } from 'aws-lambda'
 import Joi from 'joi'
 
 import { SingUpInput } from '../interface/sing.up.input'
+import { UserRoleEnum } from '../util/user.role.enum'
 
 const schema = Joi.object({
   firstName: Joi.string().alphanum().min(3).max(30).required(),

@@ -3,4 +3,4 @@ hello:
   events:
     - http:
         path: hello  # Шлях для HTTP-запиту: /hello
-        method: get  # Метод запиту: GET
+        method: get  # Метод запиту: GEThello:

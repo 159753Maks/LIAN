@@ -1,17 +1,17 @@
-import { Knex, knex } from 'knex'
+import { Knex } from 'knex'
 import { Logger } from 'winston'
 
 import { CategoryProductDto } from '../interface/category.product.dto'
 
 class CategoryProductDao {
   static async insert(
-    queryBuilder: Knex | Knex.Transaction,
+    queryBuilder: Knex.Transaction,
     categories: Array<CategoryProductDto>,
     logger: Logger,
   ): Promise<void> {
     logger.info('category-product.dao.insert.start')
-    await queryBuilder<CategoryProductDto>('categoryProduct').insert(categories)
-    logger.info('category-product.dao.insert.end')
+    const result = await queryBuilder<CategoryProductDto>('categoryProduct').insert(categories)
+    logger.info('category-product.dao.insert.end', result)
     return
   }
 

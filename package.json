@@ -11,16 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "@types/react-router-dom": "^5.3.3",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.3"
   }
 }

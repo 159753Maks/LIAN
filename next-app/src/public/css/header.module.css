@@ -1,33 +1,48 @@
 .header {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    position: fixed;
-    background-color: #fff;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: #f8f8f8;
 }
 
 .header_logo {
+    display: flex;
+    align-items: center;
     padding-left: 70px;
+}
+
+.header_logo svg {
+    width: 131px;
+    height: 35px;
 }
 
 .header_nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 350px;
+    padding-right: 70px;
 }
 
 .header_nav a {
-    text-decoration: none;
-    color: #9C9C9C;
-    font-family: "Roboto-Bold";
+    color: #828181;
 }
 
 .header_nav a:hover {
-    color: black;
     transition: color ease-in-out .5s;
     -webkit-transition: color ease-in-out .5s;
     -moz-transition: color ease-in-out .5s;
     -ms-transition: color ease-in-out .5s;
     -o-transition: color ease-in-out .5s;
+    color: #050505;
 }
+
+
+
+
+
+
+
+

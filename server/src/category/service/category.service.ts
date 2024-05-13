@@ -18,6 +18,13 @@ class CategoryService {
     })
   }
 
+  static async findAll(logger: Logger): Promise<Array<CategoryDto>> {
+    logger.info('category.service.findAll.start')
+    return dbExecute(async (connection: Knex) => {
+      return CategoryDao.findAll(connection, logger)
+    })
+  }
+
   static async deleteOne(id: string, logger: Logger): Promise<void> {
     return dbExecute(async (connection: Knex) => {
       return CategoryDao.deleteOne(connection, id, logger)
@@ -32,31 +39,22 @@ class CategoryService {
 
     await dbExecute(async (connection: Knex): Promise<void> => {
       if (data.productsIds?.length) {
-        const products = await ProductDao.findAllByIds(connection, data.productsIds, logger)
+        logger.info('category.service.createOne.create-category-products.start')
+        const existingProducts = await ProductDao.findAllByIds(connection, data.productsIds, logger)
 
-        if (products?.length !== data.productsIds.length) {
-          const dbProductsUids = products.map((product) => product.uid)
-
+        if (existingProducts.length !== data.productsIds?.length) {
           data.productsIds.forEach((uid) => {
-            if (!dbProductsUids.includes(uid)) {
-              throw new NotFoundError('product', uid)
+            const exist = existingProducts.find((product) => product.uid === uid)
+            if (!exist) {
+              logger.error('category.service.createOne.create-category-products.error.not-found')
+              throw new NotFoundError('Product', uid)
             }
           })
         }
       }
 
       await CategoryDao.insertOne(connection, toSave, logger)
-      if (data.productsIds?.length) {
-        await CategoryProductDao.insert(
-          connection,
-          data.productsIds.map((uid) => ({
-            uid: uuidv4(),
-            categoryUid: toSave.uid,
-            productUid: uid,
-          })),
-          logger,
-        )
-      }
+      logger.info('category.service.createOne.transaction.end')
     })
 
     return { ...toSave, productsIds: data.productsIds || [] }
@@ -67,24 +65,32 @@ class CategoryService {
       const current = await CategoryDao.findOne(connection, data.uid, logger)
 
       if (!current) {
+        logger.error('category.service.updateOne.error.not-found')
         throw new NotFoundError('Category', data.uid)
+      }
+
+      if (data.productsIds?.length) {
+        logger.info('category.service.updateOne.update-category-products.start')
+        const existingProducts = await ProductDao.findAllByIds(connection, data.productsIds, logger)
+
+        if (existingProducts.length !== data.productsIds?.length) {
+          data.productsIds.forEach((uid) => {
+            const exist = existingProducts.find((product) => product.uid === uid)
+            if (!exist) {
+              logger.error('category.service.updateOne.update-category-products.error.not-found')
+              throw new NotFoundError('Product', data.uid)
+            }
+          })
+        }
       }
 
       await CategoryDao.updateOne(connection, data, logger)
 
-      if (data.productsIds?.length) {
-        await CategoryProductDao.insert(
-          connection,
-          data.productsIds.map((uid) => ({
-            uid: uuidv4(),
-            categoryUid: data.uid,
-            productUid: uid,
-          })),
-          logger,
-        )
+      logger.info('category.service.updateOne.end')
+      return {
+        ...data,
+        productsIds: data.productsIds || [],
       }
-
-      return current
     })
 
     return result

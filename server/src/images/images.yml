@@ -1,0 +1,20 @@
+uploadImage:
+  handler: src/images/handler/upload-img.uploadImageHandler
+  events:
+    - http:
+        path: images/upload
+        method: post
+
+deleteImage:
+  handler: src/images/handler/delete-img.handler
+  events:
+    - http:
+        path: images/delete
+        method: delete
+
+getImageById:
+  handler: src/images/handler/get-by-id.handler
+  events:
+    - http:
+        path: images/{id}
+        method: get
