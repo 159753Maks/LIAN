@@ -1,9 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger'
+import { createAppLogger } from '../../db/generic/app-logger'
 import { errorResponse, successResponse } from '../../generic/responces'
-import { UserService } from '../service/user.service'
-import { validateSingUp } from '../validation/sing.up.validation'
+import { UserService } from '../service/user-service'
+import { validateSingUp } from '../validation/sing-up-validation'
 
 export const singUpHandler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
   const logger = createAppLogger()

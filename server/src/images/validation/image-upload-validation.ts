@@ -1,7 +1,8 @@
 import { APIGatewayProxyEvent } from 'aws-lambda'
 import Joi from 'joi'
-import { AllowedMimeEnum } from 'src/s3/allowed-mime-enum'
-import { UploadImageInput } from '../interface/UploadImageInput'
+
+import { AllowedMimeEnum } from '../../s3/allowed-mime-enum'
+import { UploadImageInput } from '../interface/upload-image-input'
 
 // Define the Joi schema for image data validation
 const imageSchema = Joi.object({

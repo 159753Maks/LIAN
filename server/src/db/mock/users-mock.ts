@@ -1,5 +1,5 @@
-import { UserService } from '../../user/service/user.service'
-import { UserRoleEnum } from '../../user/util/user.role.enum'
+import { UserService } from '../../user/service/user-service'
+import { UserRoleEnum } from '../../user/util/user-role-enum'
 
 export const usersMock = [
   {

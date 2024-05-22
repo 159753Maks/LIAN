@@ -1,6 +1,0 @@
-hello:
-  handler: src/hello.hello  # Обробник для функції hello знаходиться у файлі src/hello.hello
-  events:
-    - http:
-        path: hello  # Шлях для HTTP-запиту: /hello
-        method: get  # Метод запиту: GEThello:

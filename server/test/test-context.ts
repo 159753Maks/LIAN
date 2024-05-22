@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent, Context } from 'aws-lambda'
-import { UserRoleEnum } from 'src/user/util/user.role.enum'
+import { UserRoleEnum } from 'src/user/util/user-role-enum'
 import { adminUserToken } from './mock/auth-mock'
 
 export const mockContext: Context = {

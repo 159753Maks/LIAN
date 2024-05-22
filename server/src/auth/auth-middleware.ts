@@ -1,7 +1,8 @@
 import { APIGatewayProxyEvent, Context } from 'aws-lambda'
-import { regenerateToken, verifyToken } from './token.util'
-import { ForbiddenError } from '../errors/forbidden.error'
-import { middlewareType } from '../utill/middlware.util'
+
+import { ForbiddenError } from '../errors/forbidden-error'
+import { middlewareType } from '../utill/middlware-util'
+import { regenerateToken, verifyToken } from './token-util'
 
 // Middleware to verify JWT token and add user ID to context
 export const authenticate: middlewareType = async (

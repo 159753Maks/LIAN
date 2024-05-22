@@ -5,13 +5,13 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { applyMiddleware } from 'src/utill/middlware.util'
-import { authenticate } from 'src/auth/auth-middleware'
-import { notUsersMiddleware } from 'src/auth/not-users-middleware'
-import { validateUid } from 'src/generic/validate'
-import { CategoryService } from 'src/category/service/category.service'
-import { errorResponse, successResponse } from 'src/generic/responces'
-import { createAppLogger } from 'src/db/generic/app.logger'
+import { authenticate } from '../../auth/auth-middleware'
+import { notUsersMiddleware } from '../../auth/not-users-middleware'
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { validateUid } from '../../generic/validate'
+import { applyMiddleware } from '../../utill/middlware-util'
+import { CategoryService } from '../service/category-service'
 
 export const categoryDeleteHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,

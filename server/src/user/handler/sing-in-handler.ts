@@ -1,9 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger' // Winston logger
+import { createAppLogger } from '../../db/generic/app-logger'
 import { errorResponse, successResponse } from '../../generic/responces'
-import { UserService } from '../service/user.service'
-import { validateSingIn } from '../validation/sing.in.validation'
+import { UserService } from '../service/user-service'
+import { validateSingIn } from '../validation/sing-in-validation'
 
 // Експорт обробника `singInHandler` типу `APIGatewayProxyHandler`, який виконується асинхронно та приймає подію `APIGatewayProxyEvent`.
 export const singInHandler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {

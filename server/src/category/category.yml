@@ -22,3 +22,9 @@ getCategoryById:
     - http:
         path: category/{categoryId}
         method: get
+getList:
+  handler: src/category/handler/category-get-all-handler.categoryGetAllHandler
+  events:
+    - http:
+        path: category
+        method: get

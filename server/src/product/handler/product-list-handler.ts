@@ -5,10 +5,10 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger'
+import { createAppLogger } from '../../db/generic/app-logger'
 import { errorResponse, successResponse } from '../../generic/responces'
-import { ProductService } from '../service/product.service'
-import { validateListProduct } from '../validation/list.products.validation'
+import { ProductService } from '../service/product-service'
+import { validateListProduct } from '../validation/list-products-validation'
 
 export const productListHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,

@@ -1,5 +1,6 @@
 import { DeleteObjectCommand } from '@aws-sdk/client-s3'
-import { s3 } from 'src/s3/s3-init'
+
+import { s3 } from './s3-init'
 
 // Function to delete an image from S3
 export async function deleteImageFromS3(key: string): Promise<void> {

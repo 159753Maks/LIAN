@@ -1,5 +1,5 @@
-import { productMock } from './product-mock'
 import { categoryMock } from './category-mock'
+import { productMock } from './product-mock'
 
 export const categoryProductMock = [
   {

@@ -4,13 +4,14 @@ import {
   APIGatewayProxyResult,
   Context,
 } from 'aws-lambda'
-import { createAppLogger } from 'src/db/generic/app.logger'
-import { applyMiddleware } from 'src/utill/middlware.util'
-import { authenticate } from 'src/auth/auth-middleware'
-import { notUsersMiddleware } from 'src/auth/not-users-middleware'
-import { validateCreateProduct } from 'src/product/validation/create.product.validation'
-import { ProductService } from 'src/product/service/product.service'
-import { errorResponse, successResponse } from 'src/generic/responces'
+
+import { authenticate } from '../../auth/auth-middleware'
+import { notUsersMiddleware } from '../../auth/not-users-middleware'
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { applyMiddleware } from '../../utill/middlware-util'
+import { ProductService } from '../service/product-service'
+import { validateCreateProduct } from '../validation/create-product-validation'
 
 export const productCreateHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,

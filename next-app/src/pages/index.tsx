@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import FooterComponent from '@/components/generic/footer.component';
 import HeaderComponent from '@/components/generic/header.component';
-import ProductComponent from '@/components/main/product.component';
+import NavigationComponent from '@/components/main/navigation.component';
 
 export default function Home() {
   useEffect(() => {
@@ -56,15 +56,7 @@ export default function Home() {
       {/*  </div>*/}
       {/*</div>*/}
 
-      {/*<NavigationComponent />*/}
-
-      <ProductComponent
-        title="T-Shirt"
-        description="New Import T-Shirt For Man Very Rare Collection, If You Want Order Right Now"
-        subDescription="New T-Shirt For Man"
-        img="http://localhost:4566/product/be-quiet-dark-rock-4(1)-465c4eb4-3619-4696-af9f-b1f1d4c6bf77"
-        cost="7.99"
-      />
+      <NavigationComponent />
 
       <FooterComponent />
     </div>

@@ -1,10 +1,10 @@
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 
+import { AllowedMimeEnum } from '../../s3/allowed-mime-enum'
 import { uploadImageToS3 } from '../../s3/upload-img'
 import { coolingMock } from '../mock/img/cooling-img-mock'
-import { AllowedMimeEnum } from '../../s3/allowed-mime-enum'
 import { createBucket } from './s3'
 
 const motherBoardFileNames = [
@@ -91,29 +91,29 @@ const ramFileNames = [
   'kingston-ddr5-32gb-2x16gb-6000mhz(3).jpg',
   'kingston-ddr5-32gb-2x16gb-6000mhz(4).jpg',
 ]
-const staticFileNames = [
-  '01.jpg',
-  '02.jpg',
-  '03.jpg',
-  '04.jpg',
-  'bcc_slider_1.jpg',
-  'Clip1.jpg',
-  'Clip2.jpg',
-  'Clip3.jpg',
-  'grid 1.png',
-  'grid 2.png',
-  'grid 3.png',
-  'grid 4.png',
-  'grid 5.png',
-  'grid 6.png',
-  'grid 7.png',
-  'grid 8.png',
-  'grid 9.png',
-  'grid 10.png',
-  'worker1.jpg',
-  'worker2.jpg',
-  'worker3.jpg',
-]
+// const staticFileNames = [
+//   '01.jpg',
+//   '02.jpg',
+//   '03.jpg',
+//   '04.jpg',
+//   'bcc_slider_1.jpg',
+//   'Clip1.jpg',
+//   'Clip2.jpg',
+//   'Clip3.jpg',
+//   'grid 1.png',
+//   'grid 2.png',
+//   'grid 3.png',
+//   'grid 4.png',
+//   'grid 5.png',
+//   'grid 6.png',
+//   'grid 7.png',
+//   'grid 8.png',
+//   'grid 9.png',
+//   'grid 10.png',
+//   'worker1.jpg',
+//   'worker2.jpg',
+//   'worker3.jpg',
+// ]
 const videoCardsFileNames = [
   'asus-dual-radeon-rx-6600-v2-8192mb(1).jpg',
   'asus-dual-radeon-rx-6600-v2-8192mb(2).jpg',
@@ -188,7 +188,7 @@ const getAllFromCategoryImg = async (
     const filePath = path.join(imgDir, item.fileName)
     const fileBuffer = fs.readFileSync(filePath)
     const { filename, mimeType } = getFileDetails(item.fileName)
-    const key = `${filename}-${uuidv4()}`
+    const key = `${filename}`
 
     // Upload the image to S3 and get the URL
     const url = await uploadImageToS3(key, fileBuffer, mimeType)

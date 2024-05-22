@@ -45,7 +45,7 @@ describe('Product get', () => {
 
   it('200: list -> get limit 1 offset 1', async () => {
     const response: any = await productListHandler(
-      { ...mockAPIGatewayEvent, body: JSON.stringify({ limit: 1, offset: 1 }) },
+      { ...mockAPIGatewayEvent, queryStringParameters: { limit: '1', offset: '1' } },
       mockContext,
       (response) => response,
     )
@@ -67,17 +67,17 @@ describe('Product get', () => {
         images: [
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000004',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(1)-39a21d31-f824-4924-a9cd-f54d28eac93e',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(1)',
             fileName: 'be-quiet-pure-wings-2-120mm(1).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000005',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(2)-6cc96f3c-f0d0-4da2-a424-abe2d574d8a4',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(2)',
             fileName: 'be-quiet-pure-wings-2-120mm(2).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000006',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(3)-6d6c09a9-e0f6-4ccd-829c-d47000fa96a5',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(3)',
             fileName: 'be-quiet-pure-wings-2-120mm(3).jpg',
           },
         ],
@@ -89,7 +89,7 @@ describe('Product get', () => {
     const response: any = await productListHandler(
       {
         ...mockAPIGatewayEvent,
-        body: JSON.stringify({ categoryIds: [categoryMock[0].uid], limit: 2 }),
+        queryStringParameters: { categoryIds: JSON.stringify([categoryMock[0].uid]), limit: '2' },
       },
       mockContext,
       (response) => response,
@@ -112,22 +112,22 @@ describe('Product get', () => {
         images: [
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000000',
-            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(1)-465c4eb4-3619-4696-af9f-b1f1d4c6bf77',
+            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(1)',
             fileName: 'be-quiet-dark-rock-4(1).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000001',
-            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(2)-26114202-d442-46e0-9903-4b710a114227',
+            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(2)',
             fileName: 'be-quiet-dark-rock-4(2).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000002',
-            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(3)-22eb7334-01e5-4136-9090-26747748029c',
+            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(3)',
             fileName: 'be-quiet-dark-rock-4(3).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000003',
-            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(4)-63f8c9bf-b648-4155-af73-ba0e57f12c91',
+            url: 'http://localhost:4566/product/be-quiet-dark-rock-4(4)',
             fileName: 'be-quiet-dark-rock-4(4).jpg',
           },
         ],
@@ -143,17 +143,17 @@ describe('Product get', () => {
         images: [
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000004',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(1)-39a21d31-f824-4924-a9cd-f54d28eac93e',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(1)',
             fileName: 'be-quiet-pure-wings-2-120mm(1).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000005',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(2)-6cc96f3c-f0d0-4da2-a424-abe2d574d8a4',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(2)',
             fileName: 'be-quiet-pure-wings-2-120mm(2).jpg',
           },
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000006',
-            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(3)-6d6c09a9-e0f6-4ccd-829c-d47000fa96a5',
+            url: 'http://localhost:4566/product/be-quiet-pure-wings-2-120mm(3)',
             fileName: 'be-quiet-pure-wings-2-120mm(3).jpg',
           },
         ],

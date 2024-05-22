@@ -2,7 +2,7 @@ export const productMock = [
   {
     uid: '2d4d3f2e-c31c-0000-0001-000000000000',
     title: 'Product 1',
-    description: 'Description for Product 1',
+    description: `Description for Product 1`,
     cost: 10.99,
     count: 100,
     subDescription: 'Sub Description for Product 1',

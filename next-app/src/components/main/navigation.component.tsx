@@ -1,116 +1,56 @@
-import '../../public/css/navigation.module.css';
+import React, { useEffect, useState } from 'react';
+import { getCategoryList } from '@/hooks/category/getCategoryList';
+import ProductGridComponent, {
+  ICategoryFilter,
+} from '@/components/main/product.greed.component';
+import { ICategory } from '@/hooks/category/interface/category.interface';
+import NavigationCategoryButtonComponent from '@/components/main/navigationCategoryButton.component';
 
-export default function NavigationComponent() {
+const NavigationComponent: React.FC = () => {
+  const [categories, setCategories] = useState<Array<ICategory>>([]);
+  const [categoryFilter, setCategoryFilter] = useState<ICategoryFilter>({
+    categoryId: undefined,
+    asc: true,
+  });
+
+  const setNewCategory = (id: string) => {
+    if (id === categoryFilter.categoryId) {
+      setCategoryFilter({ categoryId: id, asc: !categoryFilter.asc });
+    } else {
+      setCategoryFilter({ categoryId: id, asc: true });
+    }
+
+    console.log(categoryFilter);
+  };
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await getCategoryList();
+        setCategories(data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
-    <div className="nav_main">
-      <div className="nav" id="nav">
-        <button className="nav_btn">Всі товари</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
+    <div className="text-center">
+      <nav className="flex justify-center items-center space-x-2">
+        {categories.map((category, index) => (
+          <NavigationCategoryButtonComponent
+            key={category.uid}
+            category={category}
+            isLast={index === categories.length - 1}
+            onClick={setNewCategory}
           />
-        </svg>
-        <button className="nav_btn">Процесори</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Материнські плати</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Відеокарти</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Оперативна пам'ять</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Пам'ять</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Блоки живлення</button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11.2"
-          height="28.533"
-          viewBox="0 0 11.2 28.533"
-        >
-          <path
-            id="line_copy_3"
-            data-name="line copy 3"
-            d="M849.161,789.734l.94.342-10.26,28.191-.94-.342Z"
-            transform="translate(-838.9 -789.734)"
-            fill="#d7d7d7"
-          />
-        </svg>
-        <button className="nav_btn">Системи охолодження</button>
-      </div>
+        ))}
+      </nav>
+      <ProductGridComponent categoryFilter={categoryFilter} />
     </div>
   );
-}
+};
+
+export default NavigationComponent;

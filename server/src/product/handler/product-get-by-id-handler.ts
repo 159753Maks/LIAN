@@ -5,11 +5,11 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger'
-import { NotFoundError } from '../../errors/not.found.error'
+import { createAppLogger } from '../../db/generic/app-logger'
+import { NotFoundError } from '../../errors/not-found-error'
 import { errorResponse, successResponse } from '../../generic/responces'
 import { validateUid } from '../../generic/validate'
-import { ProductService } from '../service/product.service'
+import { ProductService } from '../service/product-service'
 
 export const productGetByIdHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,

@@ -1,8 +1,8 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda'
+import { APIGatewayProxyEvent, Context } from 'aws-lambda'
 
-import { UserRoleEnum } from '../user/util/user.role.enum'
-import { ForbiddenError } from '../errors/forbidden.error'
-import { middlewareType } from '../utill/middlware.util'
+import { ForbiddenError } from '../errors/forbidden-error'
+import { UserRoleEnum } from '../user/util/user-role-enum'
+import { middlewareType } from '../utill/middlware-util'
 
 export const notUsersMiddleware: middlewareType = (
   event: APIGatewayProxyEvent,

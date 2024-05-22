@@ -22,4 +22,9 @@ updateUser:
     - http:
         path: user/{userId}
         method: post
-
+hello:
+  handler: src/user/handler/hello.hello  # Обробник для функції hello знаходиться у файлі src/hello.hello
+  events:
+    - http:
+        path: hello  # Шлях для HTTP-запиту: /hello
+        method: get  # Метод запиту: GEThello:

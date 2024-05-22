@@ -4,7 +4,7 @@ import FooterComponent from '@/components/generic/footer.component';
 import HeaderComponent from '@/components/generic/header.component';
 import ProductInfo from '@/components/product/ProductInfo.component';
 import ProductPhotos from '@/components/product/ProductPhotos.component';
-import { getProductById } from '@/hooks/product/getById';
+import { getProductById } from '@/hooks/product/getProductById';
 
 function ProductPage({ productId }: { productId: string }) {
   const [product, setProduct] = useState({

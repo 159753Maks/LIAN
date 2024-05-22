@@ -4,7 +4,7 @@ import { uploadImageToS3 } from 'src/s3/upload-img'
 import { deleteImageFromS3 } from 'src/s3/delete-img'
 import { createBucket } from 'src/db/mock/s3'
 import { mockAPIGatewayEvent, mockContext } from '../test-context'
-import { uploadImageHandler } from 'src/images/handler/upload-img.handler'
+import { uploadImageHandler } from 'src/images/handler/upload-img-handler'
 import { getFileDetails } from 'src/db/mock/img-mock'
 
 describe('img handlers', () => {

@@ -1,13 +1,12 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context } from 'aws-lambda'
 
-import { createAppLogger } from '../../db/generic/app.logger' // Winston logger
-import { errorResponse, successResponse } from '../../generic/responces'
-import { UserService } from '../service/user.service'
-import { createUserValidation } from '../validation/create.user.validation'
-import { applyMiddleware } from '../../utill/middlware.util'
 import { authenticate } from '../../auth/auth-middleware'
 import { notUsersMiddleware } from '../../auth/not-users-middleware'
-import { addLoggerMiddlware } from '../../utill/add.logger.middlware'
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { applyMiddleware } from '../../utill/middlware-util'
+import { UserService } from '../service/user-service'
+import { createUserValidation } from '../validation/create-user-validation'
 
 // Експорт обробника `singInHandler` типу `APIGatewayProxyHandler`, який виконується асинхронно та приймає подію `APIGatewayProxyEvent`.
 export const createUserHandler: APIGatewayProxyHandler = async (

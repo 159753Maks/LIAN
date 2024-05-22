@@ -1,15 +1,8 @@
-import {
-  APIGatewayProxyEvent,
-  APIGatewayProxyHandler,
-  APIGatewayProxyResult,
-  Context,
-} from 'aws-lambda'
-import { applyMiddleware } from 'src/utill/middlware.util'
-import { addLoggerMiddlware } from 'src/utill/add.logger.middlware'
-import { validateUid } from 'src/generic/validate'
-import { CategoryService } from 'src/category/service/category.service'
-import { errorResponse, successResponse } from 'src/generic/responces'
-import { createAppLogger } from 'src/db/generic/app.logger'
+import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda'
+
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { CategoryService } from '../service/category-service'
 
 export const categoryGetAllHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,

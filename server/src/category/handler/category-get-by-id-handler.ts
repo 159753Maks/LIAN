@@ -4,12 +4,12 @@ import {
   APIGatewayProxyResult,
   Context,
 } from 'aws-lambda'
-import { applyMiddleware } from 'src/utill/middlware.util'
-import { addLoggerMiddlware } from 'src/utill/add.logger.middlware'
-import { validateUid } from 'src/generic/validate'
-import { CategoryService } from 'src/category/service/category.service'
-import { errorResponse, successResponse } from 'src/generic/responces'
-import { createAppLogger } from 'src/db/generic/app.logger'
+
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { validateUid } from '../../generic/validate'
+import { applyMiddleware } from '../../utill/middlware-util'
+import { CategoryService } from '../service/category-service'
 
 export const categoryGetByIdHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
@@ -18,7 +18,7 @@ export const categoryGetByIdHandler: APIGatewayProxyHandler = async (
   const logger = createAppLogger()
 
   try {
-    const { appContext, appEvent } = await applyMiddleware(event, context, addLoggerMiddlware)
+    const { appContext, appEvent } = await applyMiddleware(event, context)
 
     logger.info('category.get-by-id.handler.start')
     const { uid } = validateUid(appEvent, 'categoryId')

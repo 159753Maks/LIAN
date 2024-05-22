@@ -1,5 +1,6 @@
 import type { Knex } from 'knex'
-import { UserRoleEnum } from '../../user/util/user.role.enum'
+
+import { UserRoleEnum } from '../../user/util/user-role-enum'
 
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('user', (table) => {

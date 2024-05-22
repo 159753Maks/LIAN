@@ -1,23 +1,22 @@
 import { PutObjectCommand } from '@aws-sdk/client-s3'
-import { getConfig } from '../utill/get.config.util'
 
+import { getConfig } from '../utill/get-config-util'
 import { s3 } from './s3-init'
-import { AllowedMimeEnum } from './allowed-mime-enum'
 
 // Function to generate file extension based on MIME type
-function getFileExtensionFromContentType(contentType: string): string {
-  switch (contentType) {
-    case AllowedMimeEnum.JPEG:
-      return 'jpeg'
-    case AllowedMimeEnum.JPG:
-      return 'jpg'
-    case AllowedMimeEnum.PNG:
-      return 'png'
-    // Add more cases as needed for other MIME types
-    default:
-      return 'dat' // Default extension if MIME type is not recognized
-  }
-}
+// function getFileExtensionFromContentType(contentType: string): string {
+//   switch (contentType) {
+//     case AllowedMimeEnum.JPEG:
+//       return 'jpeg'
+//     case AllowedMimeEnum.JPG:
+//       return 'jpg'
+//     case AllowedMimeEnum.PNG:
+//       return 'png'
+//     // Add more cases as needed for other MIME types
+//     default:
+//       return 'dat' // Default extension if MIME type is not recognized
+//   }
+// }
 
 export async function uploadImageToS3(
   key: string,

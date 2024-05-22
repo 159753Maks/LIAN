@@ -1,5 +1,6 @@
 import { S3Client } from '@aws-sdk/client-s3'
-import { getConfig, isProd } from '../utill/get.config.util'
+
+import { getConfig, isProd } from '../utill/get-config-util'
 
 export const s3 = new S3Client({
   region: getConfig('AWS_REGION'),

@@ -5,14 +5,13 @@ import {
   Context,
 } from 'aws-lambda'
 
-import { errorResponse, successResponse } from '../../generic/responces'
-import { validateUid } from '../../generic/validate'
-import { ProductService } from '../service/product.service'
-import { applyMiddleware } from '../../utill/middlware.util'
-import { addLoggerMiddlware } from '../../utill/add.logger.middlware'
 import { authenticate } from '../../auth/auth-middleware'
 import { notUsersMiddleware } from '../../auth/not-users-middleware'
-import { createAppLogger } from 'src/db/generic/app.logger'
+import { createAppLogger } from '../../db/generic/app-logger'
+import { errorResponse, successResponse } from '../../generic/responces'
+import { validateUid } from '../../generic/validate'
+import { applyMiddleware } from '../../utill/middlware-util'
+import { ProductService } from '../service/product-service'
 
 export const productDeleteHandler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
@@ -21,14 +20,9 @@ export const productDeleteHandler: APIGatewayProxyHandler = async (
   const logger = createAppLogger()
 
   try {
-    const { appContext, appEvent } = await applyMiddleware(
-      event,
-      context,
-      authenticate,
-      notUsersMiddleware,
-    )
+    const { appEvent } = await applyMiddleware(event, context, authenticate, notUsersMiddleware)
     const { uid } = validateUid(appEvent, 'productId')
-    const product = await ProductService.deleteOne(uid, logger)
+    await ProductService.deleteOne(uid, logger)
 
     return successResponse({})
   } catch (e: unknown) {
