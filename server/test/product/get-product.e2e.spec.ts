@@ -63,7 +63,7 @@ describe('Product get', () => {
         subDescription: 'Sub Description for Product 2',
         cost: 150,
         count: 0,
-        categoryIds: ['2d4d3f2e-c31c-0000-0001-000000000000'],
+        categories: [{ uid: '2d4d3f2e-c31c-0000-0001-000000000000', title: 'Cooling' }],
         images: [
           {
             uid: '2d4d3f2e-c31c-0000-0010-000000000004',

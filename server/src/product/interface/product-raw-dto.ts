@@ -8,6 +8,7 @@ export interface ProductRawDto extends BaseDtoEntity {
   count: number
   subDescription: string
   categoryUid?: string
+  categoryTitle?: string
   imageUid?: string
   fileName?: string
   url?: string

@@ -56,6 +56,7 @@ class ProductDao {
 
     const queryResult = await queryBuilder<ProductDto>('product')
       .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('category', 'category.uid', '=', 'categoryProduct.categoryUid')
       .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
       .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
       .select(
@@ -65,7 +66,8 @@ class ProductDao {
         'product.cost as cost',
         'product.count as count',
         'product.subDescription as subDescription',
-        'categoryProduct.categoryUid as categoryUid',
+        'category.uid as categoryUid',
+        'category.title as categoryTitle',
         'image.uid as imageUid',
         'image.fileName as fileName',
         'image.url as url',
@@ -88,6 +90,7 @@ class ProductDao {
     logger.info('product.dao.findAllByIds.start')
     const queryResult = await queryBuilder<ProductDto>('product')
       .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('category', 'category.uid', '=', 'categoryProduct.categoryUid')
       .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
       .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
       .select(
@@ -97,7 +100,8 @@ class ProductDao {
         'product.cost as cost',
         'product.count as count',
         'product.subDescription as subDescription',
-        'categoryProduct.categoryUid as categoryUid',
+        'category.uid as categoryUid',
+        'category.title as categoryTitle',
         'image.uid as imageUid',
         'image.fileName as fileName',
         'image.url as url',
@@ -119,6 +123,7 @@ class ProductDao {
     logger.info('product.dao.findOne.start')
     const queryResult = await queryBuilder<ProductDto>('product')
       .leftJoin('categoryProduct', 'product.uid', '=', 'categoryProduct.productUid')
+      .leftJoin('category', 'category.uid', '=', 'categoryProduct.categoryUid')
       .leftJoin('productImage', 'product.uid', '=', 'productImage.productUid')
       .leftJoin('image', 'image.uid', '=', 'productImage.imageUid')
       .select(
@@ -128,7 +133,8 @@ class ProductDao {
         'product.cost as cost',
         'product.count as count',
         'product.subDescription as subDescription',
-        'categoryProduct.categoryUid as categoryUid',
+        'category.uid as categoryUid',
+        'category.title as categoryTitle',
         'image.uid as imageUid',
         'image.fileName as fileName',
         'image.url as url',

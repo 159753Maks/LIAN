@@ -538,7 +538,7 @@ export const productMock = [
     Сумісні ОЗП: DDR4 для ПК`,
   },
 
-  // Материнські плати
+  // Жорсткі диски
   {
     uid: '2d4d3f2e-c31c-0003-0000-000000000000',
     title: 'Жорсткий диск Toshiba P300 1TB 64MB 7200RPM 3.5"',
@@ -602,7 +602,7 @@ export const productMock = [
     Лінійка: Western Digital Blue`,
   },
   {
-    uid: '2d4d3f2e-c31c-0003-0000-0000000000002',
+    uid: '2d4d3f2e-c31c-0003-0000-000000000002',
     title: 'Жорсткий диск Seagate BarraCuda 2TB 128MB 5400RPM 2.5"',
     description: `Основні
     Тип - HDD
@@ -630,7 +630,7 @@ export const productMock = [
     Лінійка: Seagate BarraCuda`,
   },
   {
-    uid: '2d4d3f2e-c31c-0003-0000-0000000000003',
+    uid: '2d4d3f2e-c31c-0003-0000-000000000003',
     title: 'SSD-диск Kingston NV2 3D NAND 1TB M.2 NVMe x4',
     description: `Основні
     Форм-фактор - M.2 2280
@@ -659,7 +659,7 @@ export const productMock = [
     Швидкість запису: 2100 МБ/с`,
   },
   {
-    uid: '2d4d3f2e-c31c-0003-0000-0000000000004',
+    uid: '2d4d3f2e-c31c-0003-0000-000000000004',
     title: 'SSD-диск Kingston KC3000 3D NAND TLC 1TB M.2 NVMe x4',
     description: `Основні
     Форм-фактор - M.2 2280
@@ -693,7 +693,7 @@ export const productMock = [
     Швидкість запису: 6000 МБ/с`,
   },
   {
-    uid: '2d4d3f2e-c31c-0003-0000-0000000000005',
+    uid: '2d4d3f2e-c31c-0003-0000-000000000005',
     title: 'SSD-диск Samsung 970 Evo Plus V-NAND MLC 1TB M.2',
     description: `Основні
     Форм-фактор - M.2 2280

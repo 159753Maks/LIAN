@@ -7,6 +7,6 @@ export interface ProductOutputDto extends BaseDtoEntity {
   subDescription: string
   cost: number
   count: number
-  categoryIds: Array<string>
+  categories: Array<{ uid: string; title: string }>
   images: Array<ImageDto>
 }

@@ -6,7 +6,7 @@ export default function FooterComponent() {
           <img
             width="131"
             height="35"
-            src="http://localhost:4566/product/lian_logo.png"
+            src="http://localhost:4566/product/lian_logo"
             alt="logo"
           />
         </div>

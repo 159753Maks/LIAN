@@ -1,8 +1,10 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:latest
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -10,7 +12,18 @@ services:
       POSTGRES_PASSWORD: beaver
       POSTGRES_DB: lian
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: degget@lian.com
+      PGADMIN_DEFAULT_PASSWORD: beaver
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
 
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
@@ -25,15 +38,7 @@ services:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
-#  pgadmin:
-#    image: dpage/pgadmin4
-#    container_name: pgadmin
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: admin@example.com
-#      PGADMIN_DEFAULT_PASSWORD: admin
-#    ports:
-#      - "5050:80"
-#    depends_on:
-#      - postgres
-#    volumes:
-#      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+  pgadmin-data:

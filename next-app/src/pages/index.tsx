@@ -12,7 +12,7 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(1);
 
   return (
-    <div className="flex flex-col items-center min-h-screen">
+    <div className="flex flex-col items-stretch min-h-screen">
       <HeaderComponent />
 
       {/*<div className="main_container flex flex-col items-center">*/}

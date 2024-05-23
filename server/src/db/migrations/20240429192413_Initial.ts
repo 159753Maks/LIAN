@@ -16,10 +16,10 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('product', (table) => {
     table.uuid('uid').primary()
     table.string('title', 255).notNullable()
-    table.string('description', 255).notNullable()
-    table.double('cost', 255).nullable()
+    table.text('description').notNullable()
+    table.double('cost').nullable()
     table.integer('count').notNullable().defaultTo(0)
-    table.string('subDescription', 255).nullable()
+    table.text('subDescription').nullable()
   })
 
   await knex.schema.createTable('category', (table) => {

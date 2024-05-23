@@ -7,7 +7,7 @@ import { getConfig } from '../../../config/config';
 export const getProductById = async (productId: string): Promise<IProduct> => {
   try {
     const response = await axios.get(
-      `${getConfig('apiUrl')}/products/${productId}`
+      `${getConfig('apiUrl')}/product/${productId}`
     );
     return response.data;
   } catch (error) {
