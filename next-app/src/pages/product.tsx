@@ -48,16 +48,16 @@ function ProductPage() {
   }
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col min-h-screen w-full">
       <div className="flex flex-col h-2/12">
         <HeaderComponent />
       </div>
 
-      <div className="flex flex-col h-8/12">
+      <div className="mt-10 mb-10 flex flex-row flex-grow h-1/2">
         <ProductInfo
           product={product}
           isEditMode={false}
-          onButtonClick={() => {}} // mock for now
+          onButtonClick={() => { }} // mock for now
         />
         <ProductPhotos product={product} />
       </div>

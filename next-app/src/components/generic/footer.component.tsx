@@ -1,6 +1,6 @@
 export default function FooterComponent() {
   return (
-    <footer className="flex items-end justify-center w-full h-40 pb-0 bg-white shadow-md">
+    <footer className="flex items-end justify-center w-full h-40 pb-0 bg-white shadow-md mt-10">
       <div className="w-4/5 h-full flex flex-col items-center justify-around">
         <div className="footer_logo">
           <img

@@ -46,7 +46,7 @@ export const memoryMock = [
 
     //Жорсткий диск Seagate BarraCuda 2TB 128MB 5400RPM 2.5"
     {
-        uid: '2d4d3f2e-c31c-0000-0030-0000000000034',
+        uid: '2d4d3f2e-c31c-0000-0030-000000000004',
         fileName: memoryFileNames[4],
         productUid: productMock[13].uid,
     },

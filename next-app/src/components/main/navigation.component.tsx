@@ -13,7 +13,7 @@ const NavigationComponent: React.FC = () => {
     asc: true,
   });
 
-  const setNewCategory = (id: string) => {
+  const setNewCategory = (id?: string) => {
     if (id === categoryFilter.categoryId) {
       setCategoryFilter({ categoryId: id, asc: !categoryFilter.asc });
     } else {
@@ -27,7 +27,7 @@ const NavigationComponent: React.FC = () => {
     const fetchCategories = async () => {
       try {
         const data = await getCategoryList();
-        setCategories(data);
+        setCategories([{ uid: undefined, title: 'All', }, ...data]);
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
@@ -37,7 +37,7 @@ const NavigationComponent: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-center">
+    <div className="text-center mt-20 pt-10">
       <nav className="flex justify-center items-center space-x-2">
         {categories.map((category, index) => (
           <NavigationCategoryButtonComponent

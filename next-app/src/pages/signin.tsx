@@ -42,7 +42,7 @@ const LoginPage = () => {
         </form>
         <p className="text-sm text-center">
           Not registered?{' '}
-          <a href="#" className="text-blue-500 underline">
+          <a href="/signup" className="text-blue-500 underline">
             Create an account
           </a>
         </p>

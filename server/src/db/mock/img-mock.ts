@@ -7,6 +7,12 @@ import { uploadImageToS3 } from '../../s3/upload-img'
 import { coolingMock } from './img/cooling-img-mock'
 import { createBucket } from './s3'
 import { staticImgMock } from './img/static-img-mock'
+import { memoryMock } from './img/memory-img-mock'
+import { motherBoardMock } from './img/motherBoard-img.mock'
+import { powerMock } from './img/power-img-mock'
+import { processorsMock } from './img/processors-img-mock'
+import { ramMock } from './img/ram-img-mock'
+import { videocardsMock } from './img/videocards-img-mock'
 
 export function getFileDetails(filename: string) {
   const extension = path.extname(filename).toLowerCase()
@@ -93,6 +99,30 @@ export const getImgMock = async (): Promise<{
   const coolingUploadResult = await getAllFromCategoryImg('cooling', coolingMock)
   img.push(...coolingUploadResult.img)
   imgProd.push(...coolingUploadResult.imgProd)
+
+  const memoryUploadResult = await getAllFromCategoryImg('memory', memoryMock)
+  img.push(...memoryUploadResult.img)
+  imgProd.push(...memoryUploadResult.imgProd)
+
+  const motherBoardUploadResult = await getAllFromCategoryImg('materinka', motherBoardMock)
+  img.push(...motherBoardUploadResult.img)
+  imgProd.push(...motherBoardUploadResult.imgProd)
+
+  const powerResult = await getAllFromCategoryImg('power', powerMock)
+  img.push(...powerResult.img)
+  imgProd.push(...powerResult.imgProd)
+
+  const processorsResult = await getAllFromCategoryImg('processors', processorsMock)
+  img.push(...processorsResult.img)
+  imgProd.push(...processorsResult.imgProd)
+
+  const ramResult = await getAllFromCategoryImg('ram', ramMock)
+  img.push(...ramResult.img)
+  imgProd.push(...ramResult.imgProd)
+
+  const videocardResult = await getAllFromCategoryImg('videocards', videocardsMock)
+  img.push(...videocardResult.img)
+  imgProd.push(...videocardResult.imgProd)
 
   const staticUploadResult = await getAllFromCategoryImg('static', staticImgMock)
   img.push(...staticUploadResult.img)

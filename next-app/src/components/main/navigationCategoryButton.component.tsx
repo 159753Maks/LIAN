@@ -4,7 +4,7 @@ import { ICategory } from '@/hooks/category/interface/category.interface';
 interface CategoryButtonProps {
   category: ICategory;
   isLast: boolean;
-  onClick: (id: string) => void; // Accepts category id as argument
+  onClick: (id?: string) => void; // Accepts category id as argument
 }
 
 const NavigationCategoryButton: React.FC<CategoryButtonProps> = ({
