@@ -18,19 +18,19 @@ export default function HeaderComponent() {
 
       <nav className="flex flex-row justify-between max-w-64 min-w-32 pr-8 space-x-10">
         <span className="text-gray-500 hover:text-black transition-colors duration-500">
-          <a href="/contact.html">
+          <Link href="/contact">
             <i className="fa-solid fa-phone fa-2x"></i>
-          </a>
+          </Link>
         </span>
         <span className="text-gray-500 hover:text-black transition-colors duration-500">
-          <a href="">
+          <Link href="">
             <i className="fa-solid fa-cart-shopping fa-2x"></i>
-          </a>
+          </Link>
         </span>
         <span className="text-gray-500 hover:text-black transition-colors duration-500">
-          <a href="/login_form.html">
+          <Link href="/signin">
             <i className="fa-solid fa-user fa-2x"></i>
-          </a>
+          </Link>
         </span>
       </nav>
     </div>
