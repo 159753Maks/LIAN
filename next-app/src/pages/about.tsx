@@ -1,5 +1,6 @@
 import React from 'react';
-import './AboutUs.css'; // Підключаємо стилі CSS
+import './AboutUs.css';
+import Image from 'next/image'; // Підключаємо стилі CSS
 
 // Компонент для блоку "Про наше агентство"
 function AboutAgency() {
@@ -24,10 +25,20 @@ function OurSkills() {
 }
 
 // Компонент для блоку "Наша команда"
-function TeamMember({ name, position, image, description }) {
+function TeamMember({
+  name,
+  position,
+  image,
+  description,
+}: {
+  name: string;
+  position: string;
+  image: string;
+  description: string;
+}) {
   return (
     <div className="workers">
-      <img src={image} alt={name} />
+      <Image src={image} alt={name} />
       <div className="workers-text">
         <h1>{name}</h1>
         <h2>{position}</h2>

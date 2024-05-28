@@ -1,7 +1,10 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { singUpHandler } from 'src/user/handler/sing-up-handler'
 
 describe('register', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
   it('200: register', async () => {
     const payload = {
       firstName: 'norbert',

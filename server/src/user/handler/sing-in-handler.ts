@@ -9,13 +9,13 @@ import { validateSingIn } from '../validation/sing-in-validation'
 export const singInHandler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
   const logger = createAppLogger() // Створення логгера за допомогою `createAppLogger`.
   try {
-    logger.info('user.sing.in.handler.start') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.start'`.
+    logger.debug('user.sing.in.handler.start') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.start'`.
     const user = validateSingIn(event) // Валідація даних вхідного запиту за допомогою `validateSingIn`.
 
-    logger.info('user.sing.in.handler.validated') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.validated'`.
+    logger.debug('user.sing.in.handler.validated') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.validated'`.
     const token = await UserService.singIn(user.email, user.password, logger) // Виклик методу `singIn` сервісу `UserService` для аутентифікації користувача.
 
-    logger.info('user.sing.in.handler.end') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.end'`.
+    logger.debug('user.sing.in.handler.end') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.end'`.
     return successResponse({ token }) // Повернення успішної відповіді з токеном.
   } catch (e) {
     logger.error('user.sing.in.handler.error: ', e) // Запис повідомлення про помилку у логгер з рівнем `error` та передачею помилки `e`.

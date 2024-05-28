@@ -9,6 +9,8 @@ const clearDatabase = async (db: Knex): Promise<void> => {
       await trx.raw('TRUNCATE TABLE "productImage" CASCADE')
       await trx.raw('TRUNCATE TABLE "product" CASCADE')
       await trx.raw('TRUNCATE TABLE "image" CASCADE')
+      await trx.raw('TRUNCATE TABLE "orderProduct" CASCADE')
+      await trx.raw('TRUNCATE TABLE "order" CASCADE')
     })
   } catch (error) {
     console.error(`Error clearing database:`, error)

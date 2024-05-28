@@ -12,21 +12,21 @@ import { UserDto } from '../interface/user-dto'
 
 class UserService {
   static async findOne(id: string, logger: Logger): Promise<UserDto | undefined> {
-    logger.info('user.service.findOne.start') // Логування початку операції
+    logger.debug('user.service.findOne.start') // Логування початку операції
     return dbExecute(async (connection: Knex): Promise<UserDto | undefined> => {
       return UserDao.findOne(connection, id, logger) // Виклик методу для пошуку користувача за ID
     })
   }
 
   static async findOneByEmail(email: string, logger: Logger): Promise<UserDto | undefined> {
-    logger.info('user.service.findOneByEmail.start') // Логування початку операції
+    logger.debug('user.service.findOneByEmail.start') // Логування початку операції
     return dbExecute(async (connection: Knex): Promise<UserDto | undefined> => {
       return UserDao.findOneByEmail(connection, email, logger) // Виклик методу для пошуку користувача за email
     })
   }
 
   static async createUser(data: SingUpInput, logger: Logger): Promise<void> {
-    logger.info('user.service.createUser.start') // Логування початку операції
+    logger.debug('user.service.createUser.start') // Логування початку операції
     const password = await this.hashPassword(data.password) // Хешування паролю
 
     const saveObject = { ...data, uid: uuidv4(), password } // Підготовка об'єкту для збереження в базу
@@ -36,7 +36,7 @@ class UserService {
   }
 
   static async updateUser(data: UserDto, logger: Logger): Promise<UserDto> {
-    logger.info('user.service.updateUser.start') // Логування початку операції
+    logger.debug('user.service.updateUser.start') // Логування початку операції
     await dbExecute(async (connection: Knex): Promise<void> => {
       return UserDao.updateOne(connection, data, logger) // Виклик методу для оновлення користувача
     })
@@ -45,7 +45,7 @@ class UserService {
   }
 
   static async singIn(email: string, password: string, logger: Logger): Promise<string> {
-    logger.info('user.service.singIn.start') // Логування початку операції
+    logger.debug('user.service.singIn.start') // Логування початку операції
     const user = await dbExecute(async (connection: Knex): Promise<UserDto | undefined> => {
       return UserDao.findOneByEmail(connection, email, logger) // Пошук
     })
@@ -62,7 +62,7 @@ class UserService {
       throw new ForbiddenError('invalid email or password')
     }
 
-    logger.info('user.service.singIn.end')
+    logger.debug('user.service.singIn.end')
     return generateToken(user.uid, user.role)
   }
 

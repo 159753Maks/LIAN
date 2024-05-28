@@ -2,10 +2,12 @@ import * as jwt from 'jsonwebtoken'
 import { JwtPayload } from 'jsonwebtoken'
 
 import { UserRoleEnum } from '../user/util/user-role-enum'
+require('dotenv').config()
 
 // Function to generate JWT token for a user
 export function generateToken(userUid: string, role: UserRoleEnum): string {
-  return jwt.sign({ userId: userUid, role }, process.env.JWT_SECRET || '', {
+  const secret = process.env.JWT_SECRET || ''
+  return jwt.sign({ userId: userUid, role }, secret, {
     expiresIn: '1h',
   })
 }
@@ -13,7 +15,9 @@ export function generateToken(userUid: string, role: UserRoleEnum): string {
 // Middleware to verify JWT token
 export async function verifyToken(token: string): Promise<JwtPayload> {
   try {
-    const decoded: string | JwtPayload = jwt.verify(token, process.env.JWT_SECRET || '')
+    const secret = process.env.JWT_SECRET || ''
+
+    const decoded: string | JwtPayload = jwt.verify(token, secret)
     return decoded as JwtPayload
   } catch (err) {
     throw err

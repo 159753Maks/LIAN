@@ -1,8 +1,12 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { categoryCreateHandler } from 'src/category/handler/category-create-handler'
 import { productMock } from 'src/db/mock/product-mock'
 
 describe('Category create ', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('new category without products', async () => {
     const payload = {
       title: 'New Category',

@@ -1,30 +1,34 @@
-createCategory:
-  handler: src/category/handler/category-create-handler.categoryCreateHandler
-  events:
-    - http:
-        path: category
-        method: post
-updateCategory:
-  handler: src/category/handler/category-update-handler.categoryUpdateHandler
-  events:
-    - http:
-        path: category/{categoryId}
-        method: post
-deleteCategory:
-  handler: src/category/handler/category-delete-handler.deleteCreateHandler
-  events:
-    - http:
-        path: category/{categoryId}
-        method: delete
-getCategoryById:
-  handler: src/category/handler/category-get-by-id-handler.categoryGetByIdHandler
-  events:
-    - http:
-        path: category/{categoryId}
-        method: get
-getList:
-  handler: src/category/handler/category-get-all-handler.categoryGetAllHandler
-  events:
-    - http:
-        path: category
-        method: get
+createCategory: # Описує обробник створення категорії
+  handler: src/category/handler/category-create-handler.categoryCreateHandler # Шлях до файлу обробника створення категорії
+  events: # Події, які викликають обробник
+    - http: # HTTP-подія
+        path: category # Шлях запиту
+        method: post # Метод запиту: POST
+
+updateCategory: # Описує обробник оновлення категорії
+  handler: src/category/handler/category-update-handler.categoryUpdateHandler # Шлях до файлу обробника оновлення категорії
+  events: # Події, які викликають обробник
+    - http: # HTTP-подія
+        path: category/{categoryId} # Шлях запиту з параметром categoryId
+        method: post # Метод запиту: POST
+
+deleteCategory: # Описує обробник видалення категорії
+  handler: src/category/handler/category-delete-handler.deleteCreateHandler # Шлях до файлу обробника видалення категорії
+  events: # Події, які викликають обробник
+    - http: # HTTP-подія
+        path: category/{categoryId} # Шлях запиту з параметром categoryId
+        method: delete # Метод запиту: DELETE
+
+getCategoryById: # Описує обробник отримання категорії за ідентифікатором
+  handler: src/category/handler/category-get-by-id-handler.categoryGetByIdHandler # Шлях до файлу обробника отримання категорії за ідентифікатором
+  events: # Події, які викликають обробник
+    - http: # HTTP-подія
+        path: category/{categoryId} # Шлях запиту з параметром categoryId
+        method: get # Метод запиту: GET
+
+getList: # Описує обробник отримання списку категорій
+  handler: src/category/handler/category-get-all-handler.categoryGetAllHandler # Шлях до файлу обробника отримання списку категорій
+  events: # Події, які викликають обробник
+    - http: # HTTP-подія
+        path: category # Шлях запиту
+        method: get # Метод запиту: GET

@@ -1,8 +1,12 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { categoryCreateHandler } from 'src/category/handler/category-create-handler'
 import { productMock } from 'src/db/mock/product-mock'
 
 describe('Product update', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('200: success', async () => {
     const payload = {
       title: 'New Category',
@@ -17,7 +21,7 @@ describe('Product update', () => {
     expect(response.statusCode).toBe(200)
 
     const body = JSON.parse(response.body)
-    expect(body).toStrictEqual({ ...payload, uid: expect.any(String) })
+    expect(body).toStrictEqual({ ...payload, uid: expect.any(String), productsIds: [] })
   })
 
   it('new category with existing products', async () => {

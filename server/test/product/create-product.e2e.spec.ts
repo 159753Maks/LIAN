@@ -1,7 +1,11 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { productCreateHandler } from 'src/product/handler/product-create-handler'
 
 describe('product create ', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('200: just product', async () => {
     const payload = {
       title: 'some',

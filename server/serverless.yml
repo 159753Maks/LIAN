@@ -15,3 +15,5 @@ functions:  # Встановлення функцій додатку
   - ${file(src/product/product.yml)}  # Функція, яка встановлена у файлі product.yml
   - ${file(src/user/user.yml)}  # Функція, яка встановлена у файлі user.yml
   - ${file(src/category/category.yml)}  # Функція, яка встановлена у файлі category.yml
+  - ${file(src/images/images.yml)}  # Функція, яка встановлена у файлі images.yml
+  - ${file(src/order/order.yml)}  # Функція, яка встановлена у файлі order.yml

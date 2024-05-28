@@ -12,9 +12,9 @@
     "migrate:seed": "knex seed:run",
     "migrate:seed:make": "knex seed:make seed_name -x ts",
     "migrate:create": "knex migrate:make AlterUserAddRole -x ts",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest --runInBand",
+    "test:watch": "jest --runInBand --watch",
+    "test:coverage": "jest --runInBand --coverage"
   },
   "author": "",
   "license": "ISC",

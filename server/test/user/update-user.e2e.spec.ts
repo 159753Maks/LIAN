@@ -1,8 +1,12 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { createUserHandler } from 'src/user/handler/create-user-handler'
 import { usersMock } from 'src/db/mock/users-mock'
 
 describe('user update ', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('200: updated from admin', async () => {
     const payload = {
       firstName: 'DeggetUpdated',

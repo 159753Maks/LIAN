@@ -5,14 +5,14 @@ import { v4 as uuidv4 } from 'uuid'
 import { AllowedMimeEnum } from '../../s3/allowed-mime-enum'
 import { uploadImageToS3 } from '../../s3/upload-img'
 import { coolingMock } from './img/cooling-img-mock'
-import { createBucket } from './s3'
-import { staticImgMock } from './img/static-img-mock'
 import { memoryMock } from './img/memory-img-mock'
 import { motherBoardMock } from './img/motherBoard-img.mock'
 import { powerMock } from './img/power-img-mock'
 import { processorsMock } from './img/processors-img-mock'
 import { ramMock } from './img/ram-img-mock'
+import { staticImgMock } from './img/static-img-mock'
 import { videocardsMock } from './img/videocards-img-mock'
+import { createBucket } from './s3'
 
 export function getFileDetails(filename: string) {
   const extension = path.extname(filename).toLowerCase()

@@ -2,13 +2,13 @@ singUp:
   handler: src/user/handler/sing-up-handler.singUpHandler
   events:
     - http:
-        path: singUp
+        path: signup
         method: post
 singIn:
   handler: src/user/handler/sing-in-handler.singInHandler
   events:
     - http:
-        path: singIn
+        path: signin
         method: post
 createUser:
   handler: src/user/handler/create-user-handler.createUserHandler
@@ -22,9 +22,16 @@ updateUser:
     - http:
         path: user/{userId}
         method: post
+currentUser:
+  handler: src/user/handler/get-current-user-handler.getCurrentUserHandler
+  timeout: 8 # За замовчуванням 3 секунди, додавання 5 секунд робить його 8 секунд
+  events:
+    - http:
+        path: user
+        method: get
 hello:
   handler: src/user/handler/hello.hello  # Обробник для функції hello знаходиться у файлі src/hello.hello
   events:
     - http:
         path: hello  # Шлях для HTTP-запиту: /hello
-        method: get  # Метод запиту: GEThello:
+        method: get  # Метод запиту: GET

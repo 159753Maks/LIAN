@@ -1,20 +1,23 @@
+# Конфігурація для обробки HTTP-запиту на завантаження зображення
 uploadImage:
-  handler: src/images/handler/upload-img.uploadImageHandler
+  handler: src/images/handler/upload-img-handler.uploadImageHandler  # Імпорт та виклик функції для обробки запиту на завантаження
   events:
     - http:
-        path: images/upload
-        method: post
+        path: images  # Шлях для HTTP-запиту
+        method: post  # Метод HTTP-запиту (POST)
 
+# Конфігурація для обробки HTTP-запиту на видалення зображення
 deleteImage:
-  handler: src/images/handler/delete-img.handler
+  handler: src/images/handler/delete-img-handler.deleteImgHandler  # Імпорт та виклик функції для обробки запиту на видалення
   events:
     - http:
-        path: images/delete
-        method: delete
+        path: images/{imageId}  # Шлях для HTTP-запиту з параметром imageId
+        method: delete  # Метод HTTP-запиту (DELETE)
 
-getImageById:
-  handler: src/images/handler/get-by-id.handler
-  events:
-    - http:
-        path: images/{id}
-        method: get
+
+#getImageById:
+#  handler: src/images/handler/get-by-id.handler
+#  events:
+#    - http:
+#        path: images/{id}
+#        method: get

@@ -10,11 +10,12 @@ export const authenticate: middlewareType = async (
   context: Context,
 ): Promise<{ event: APIGatewayProxyEvent; context: Context }> => {
   try {
-    const token = event.headers?.Authorization
-    if (!token) {
+    const authHeader = event.headers?.Authorization
+    if (!authHeader) {
       throw new ForbiddenError('Unauthorized: Missing token')
     }
 
+    const token = authHeader.split(' ')[1]
     let decoded
     try {
       decoded = await verifyToken(token)

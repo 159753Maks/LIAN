@@ -14,7 +14,10 @@ export const successResponse = (data: unknown): APIGatewayProxyResult => {
 }
 
 // Функція для створення відповіді з помилкою
-export const errorResponse = (event: APIGatewayProxyEvent, err: unknown): APIGatewayProxyResult => {
+export const errorResponse = (
+  event: APIGatewayProxyEvent,
+  err: Error | unknown,
+): APIGatewayProxyResult => {
   if (err instanceof NotFoundError) {
     // Якщо помилка є типу NotFoundError
     return {
@@ -45,7 +48,18 @@ export const errorResponse = (event: APIGatewayProxyEvent, err: unknown): APIGat
         input: event,
       }),
     }
+  } else if (err instanceof Error) {
+    // Якщо помилка є типу Error
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: err.message,
+        error: { name: err.name, message: err.message },
+        input: event,
+      }),
+    }
   }
+
   return {
     statusCode: 500,
     body: JSON.stringify({

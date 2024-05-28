@@ -1,8 +1,12 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { productMock } from 'src/db/mock/product-mock'
 import { productDeleteHandler } from 'src/product/handler/product-delete-handler'
 
 describe('Product delete', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('200: success', async () => {
     const response: any = await productDeleteHandler(
       { ...mockAPIGatewayEvent, pathParameters: { productId: productMock[8].uid } },

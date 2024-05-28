@@ -23,13 +23,13 @@ export const createUserHandler: APIGatewayProxyHandler = async (
       notUsersMiddleware,
     )
 
-    logger.info('user.create.handler.start') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.start'`.
+    logger.debug('user.create.handler.start') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.start'`.
     const user = createUserValidation(appEvent, appContext) // Валідація даних вхідного запиту за допомогою `validateSingIn`.
 
-    logger.info('user.create.handler.validated') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.validated'`.
+    logger.debug('user.create.handler.validated') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.validated'`.
     await UserService.createUser(user, logger) // Виклик методу `singIn` сервісу `UserService` для аутентифікації користувача.
 
-    logger.info('user.create.handler.end') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.end'`.
+    logger.debug('user.create.handler.end') // Запис повідомлення у логгер з рівнем `info` та текстом `'user.sing.in.handler.end'`.
     return successResponse({}) // Повернення успішної відповіді з токеном.
   } catch (e) {
     logger.error('user.create.handler.error: ', e) // Запис повідомлення про помилку у логгер з рівнем `error` та передачею помилки `e`.

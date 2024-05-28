@@ -12,4 +12,5 @@ export interface ListProductInput {
   asc?: boolean
   sortField: keyof ProductOutputDto
   categoryIds?: Array<string>
+  orderId?: string
 }

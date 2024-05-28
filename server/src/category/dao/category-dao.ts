@@ -14,7 +14,7 @@ class CategoryDao {
     uid: string,
     logger: Logger,
   ): Promise<CategoryDto | undefined> {
-    logger.info('category.dao.findOne.start')
+    logger.debug('category.dao.findOne.start')
     const queryResult = await queryBuilder('category')
       .leftJoin('categoryProduct', 'category.uid', '=', 'categoryProduct.categoryUid')
       .select(
@@ -25,20 +25,20 @@ class CategoryDao {
       .where('category.uid', uid)
 
     if (!queryResult?.length) {
-      logger.info('category.dao.findOne.end.empty')
+      logger.debug('category.dao.findOne.end.empty')
       return undefined
     }
 
-    logger.info('category.dao.findOne.map.start')
+    logger.debug('category.dao.findOne.map.start')
 
     const result = mapCategories(queryResult)
 
-    logger.info('category.dao.findOne.end')
+    logger.debug('category.dao.findOne.end')
     return result[0]
   }
 
   static async findAll(queryBuilder: Knex, logger: Logger): Promise<Array<CategoryDto>> {
-    logger.info('category.dao.findAll.start')
+    logger.debug('category.dao.findAll.start')
     const queryResult = await queryBuilder('category')
       .leftJoin('categoryProduct', 'category.uid', '=', 'categoryProduct.categoryUid')
       .select(
@@ -48,13 +48,13 @@ class CategoryDao {
       )
 
     if (!queryResult?.length) {
-      logger.info('category.dao.findAll.end.empty')
+      logger.debug('category.dao.findAll.end.empty')
       return []
     }
 
     const result = mapCategories(queryResult)
 
-    logger.info('category.dao.findAll.end')
+    logger.debug('category.dao.findAll.end')
     return result
   }
 
@@ -63,7 +63,7 @@ class CategoryDao {
     ids: Array<string>,
     logger: Logger,
   ): Promise<Array<CategoryDto>> {
-    logger.info('category.dao.findAll.start')
+    logger.debug('category.dao.findAll.start')
     const queryResult = await queryBuilder('category')
       .leftJoin('categoryProduct', 'category.uid', '=', 'categoryProduct.categoryUid')
       .select(
@@ -74,13 +74,13 @@ class CategoryDao {
       .whereIn('category.uid', ids)
 
     if (!queryResult?.length) {
-      logger.info('category.dao.findAll.end.empty')
+      logger.debug('category.dao.findAll.end.empty')
       return []
     }
 
     const result = mapCategories(queryResult)
 
-    logger.info('category.dao.findAll.end')
+    logger.debug('category.dao.findAll.end')
     return result
   }
 
@@ -89,7 +89,7 @@ class CategoryDao {
     data: CategoryInputDto,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category.dao.insertOne.start')
+    logger.debug('category.dao.insertOne.start')
     const trx: Knex.Transaction = await queryBuilder.transaction()
 
     try {
@@ -115,7 +115,7 @@ class CategoryDao {
       throw error
     }
 
-    logger.info('category.dao.insertOne.end')
+    logger.debug('category.dao.insertOne.end')
     return
   }
 
@@ -124,15 +124,15 @@ class CategoryDao {
     data: CategoryInputDto,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category.dao.updateOne.start')
+    logger.debug('category.dao.updateOne.start')
     const trx: Knex.Transaction = await queryBuilder.transaction()
 
     try {
       await trx('category').update({ title: data.title }).where({ uid: data.uid })
-      logger.info('category.dao.updateOne.categoryUpdated', { uid: data.uid })
+      logger.debug('category.dao.updateOne.categoryUpdated', { uid: data.uid })
 
       await CategoryProductDao.deleteAllByCategoryUids(trx, [data.uid], logger)
-      logger.info('category.dao.updateOne.productsDeleted', { uid: data.uid })
+      logger.debug('category.dao.updateOne.productsDeleted', { uid: data.uid })
 
       if (data.productsIds?.length) {
         const categories = data.productsIds.map((productUid) => ({
@@ -142,18 +142,18 @@ class CategoryDao {
         }))
 
         await CategoryProductDao.insert(trx, categories, logger)
-        logger.info('category.dao.updateOne.productsInserted', { categories })
+        logger.debug('category.dao.updateOne.productsInserted', { categories })
       }
 
       await trx.commit()
-      logger.info('category.dao.updateOne.transactionCommitted')
+      logger.debug('category.dao.updateOne.transactionCommitted')
     } catch (error) {
       await trx.rollback()
       logger.error('category.dao.updateOne.transactionRolledBack', { error })
       throw error
     }
 
-    logger.info('category.dao.updateOne.end')
+    logger.debug('category.dao.updateOne.end')
     return
   }
 

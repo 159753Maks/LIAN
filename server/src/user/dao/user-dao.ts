@@ -13,7 +13,7 @@ class UserDao {
     uid: string, // Унікальний ідентифікатор користувача
     logger: Logger, // Логгер для ведення журналу подій
   ): Promise<UserDto | undefined> {
-    logger.info('user.dao.findOne.start') // Інформація в журналі про початок операції
+    logger.debug('user.dao.findOne.start') // Інформація в журналі про початок операції
     return queryBuilder<UserDto>('user').select('*').where({ uid }).first() // Виконання запиту до бази даних для пошуку користувача за UID
   }
 
@@ -23,7 +23,7 @@ class UserDao {
     email: string, // Електронна пошта користувача
     logger: Logger, // Логгер для ведення журналу подій
   ): Promise<UserDto | undefined> {
-    logger.info('user.dao.findOneByEmail.start') // Інформація в журналі про початок операції
+    logger.debug('user.dao.findOneByEmail.start') // Інформація в журналі про початок операції
     return queryBuilder<UserDto>('user') // Виконання запиту до бази даних для пошуку користувача за електронною поштою
       .select('*')
       .where({
@@ -34,18 +34,18 @@ class UserDao {
 
   // Метод для вставки нового користувача в базу даних
   static async insertOne(queryBuilder: Knex, user: UserDto, logger: Logger): Promise<void> {
-    logger.info('user.dao.insertOne.start') // Інформація в журналі про початок операції
+    logger.debug('user.dao.insertOne.start') // Інформація в журналі про початок операції
     await queryBuilder('user').insert(user) // Виконання запиту до бази даних для вставки нового користувача
 
-    logger.info('user.dao.insertOne.end') // Інформація в журналі про завершення операції
+    logger.debug('user.dao.insertOne.end') // Інформація в журналі про завершення операції
   }
 
   // Метод для оновлення інформації про користувача в базі даних
   static async updateOne(queryBuilder: Knex, user: UserDto, logger: Logger): Promise<void> {
-    logger.info('user.dao.updateOne.start') // Інформація в журналі про початок операції
+    logger.debug('user.dao.updateOne.start') // Інформація в журналі про початок операції
     await queryBuilder('user').update(user).where({ uid: user.uid }) // Виконання запиту до бази даних для оновлення інформації про користувача
 
-    logger.info('user.dao.updateOne.end') // Інформація в журналі про завершення операції
+    logger.debug('user.dao.updateOne.end') // Інформація в журналі про завершення операції
     return
   }
 }

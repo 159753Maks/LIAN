@@ -9,9 +9,9 @@ class CategoryProductDao {
     categories: Array<CategoryProductDto>,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category-product.dao.insert.start')
+    logger.debug('category-product.dao.insert.start')
     const result = await queryBuilder<CategoryProductDto>('categoryProduct').insert(categories)
-    logger.info('category-product.dao.insert.end', result)
+    logger.debug('category-product.dao.insert.end', result)
     return
   }
 
@@ -20,19 +20,19 @@ class CategoryProductDao {
     category: CategoryProductDto,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category-product.dao.updateOne.start')
+    logger.debug('category-product.dao.updateOne.start')
     await queryBuilder<CategoryProductDto>('categoryProduct')
       .update(category)
       .where({ uid: category.uid })
-    logger.info('category-product.dao.updateOne.end')
+    logger.debug('category-product.dao.updateOne.end')
 
     return
   }
 
   static async deleteOne(queryBuilder: Knex, uid: string, logger: Logger): Promise<void> {
-    logger.info('category-product.dao.deleteOne.start')
+    logger.debug('category-product.dao.deleteOne.start')
     await queryBuilder<CategoryProductDto>('categoryProduct').where('uid', uid).delete()
-    logger.info('category-product.dao.deleteOne.end')
+    logger.debug('category-product.dao.deleteOne.end')
     return
   }
 
@@ -41,10 +41,10 @@ class CategoryProductDao {
     uids: Array<string>,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category-product.dao.deleteAllByCategoryUids.start')
+    logger.debug('category-product.dao.deleteAllByCategoryUids.start')
     await queryBuilder<CategoryProductDto>('categoryProduct').whereIn('categoryUid', uids).delete()
 
-    logger.info('category-product.dao.deleteAllByCategoryUids.end')
+    logger.debug('category-product.dao.deleteAllByCategoryUids.end')
     return
   }
 
@@ -53,9 +53,9 @@ class CategoryProductDao {
     uids: Array<string>,
     logger: Logger,
   ): Promise<void> {
-    logger.info('category-product.dao.deleteAllByProductUids.start')
+    logger.debug('category-product.dao.deleteAllByProductUids.start')
     await queryBuilder<CategoryProductDto>('categoryProduct').whereIn('productUid', uids).delete()
-    logger.info('category-product.dao.deleteAllByProductUids.end')
+    logger.debug('category-product.dao.deleteAllByProductUids.end')
     return
   }
 }

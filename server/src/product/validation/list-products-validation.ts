@@ -15,6 +15,7 @@ const schema = Joi.object({
   asc: Joi.boolean().default(true),
   sortField: Joi.string().default('title').valid('title', 'description', 'cost', 'count'),
   categoryIds: Joi.array().items(Joi.string().uuid()),
+  orderId: Joi.string().uuid(),
 })
 
 export const validateListProduct = (event: APIGatewayProxyEvent): ListProductInput => {

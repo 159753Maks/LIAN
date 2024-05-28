@@ -1,64 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react'; // Імпортуємо useEffect та useState з React
 
-import FooterComponent from '@/components/generic/footer.component';
-import HeaderComponent from '@/components/generic/header.component';
+import FooterComponent from '@/components/generic/footer.component'; // Імпортуємо компонент FooterComponent
+import HeaderComponent from '@/components/generic/header.component'; // Імпортуємо компонент HeaderComponent
 import NavigationComponent from '@/components/main/navigation.component';
+import { useAppContext } from '@/pages/_appWrapper'; // Імпортуємо компонент NavigationComponent
 
 export default function Home() {
+  const context = useAppContext(); // Отримуємо контекст додатку
+  // Використовуємо хук useEffect для зміни заголовку сторінки
   useEffect(() => {
-    document.title = 'Home'; // Set the page title to 'Home'
-  }, []); // Run this effect only once when the component mounts
+    document.title = 'Home'; // Встановлюємо заголовок сторінки на 'Home'
+  }, []); // Виконуємо цей ефект лише один раз, коли компонент монтується
 
-  const [activeSlide, setActiveSlide] = useState(1);
-
+  // Повертаємо JSX для рендерингу компоненту
   return (
     <div className="flex flex-col items-stretch min-h-screen">
-      <HeaderComponent />
-
-      {/*<div className="main_container flex flex-col items-center">*/}
-      {/*  <div className="wrapper relative">*/}
-      {/*    {Array.from({ length: 5 }, (_, i) => (*/}
-      {/*      <input*/}
-      {/*        key={`slide${i + 1}`}*/}
-      {/*        type="radio"*/}
-      {/*        name="point"*/}
-      {/*        id={`slide${i + 1}`}*/}
-      {/*        checked={activeSlide === i + 1}*/}
-      {/*        onChange={() => setActiveSlide(i + 1)}*/}
-      {/*      />*/}
-      {/*    ))}*/}
-      {/*    <div className="slider bg-white overflow-hidden relative">*/}
-      {/*      <div className="slides flex items-center justify-center absolute inset-0">*/}
-      {/*        <div className="slide1 bg-cover bg-center h-full w-full">*/}
-      {/*          <div className="slide1_text flex flex-col justify-between items-center">*/}
-      {/*            <h1 className="text-white bg-black text-center font-light">*/}
-      {/*              LIAN CREATIVE AGENCY*/}
-      {/*            </h1>*/}
-      {/*            <p className="text-center font-light text-lg">*/}
-      {/*              MINIMAL FREELANCE PORTFOLIO*/}
-      {/*            </p>*/}
-      {/*          </div>*/}
-      {/*        </div>*/}
-      {/*        /!* Replace the following divs with your actual slide components *!/*/}
-      {/*        {Array.from({ length: 3 }, (_, i) => (*/}
-      {/*          <div*/}
-      {/*            key={`slideContent${i + 1}`}*/}
-      {/*            className={`slide${i + 2} bg-cover bg-center h-full w-full`}*/}
-      {/*          ></div>*/}
-      {/*        ))}*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*    <div className="controls absolute">*/}
-      {/*      {Array.from({ length: 3 }, (_, i) => (*/}
-      {/*        <label key={`label${i + 1}`} htmlFor={`slide${i + 1}`}></label>*/}
-      {/*      ))}*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
-      <NavigationComponent />
-
-      <FooterComponent />
+      {' '}
+      {/* Встановлюємо flex контейнер, який займатиме всю висоту екрану */}
+      <HeaderComponent />{' '}
+      {/* Рендеримо HeaderComponent і передаємо йому функцію setEditMode */}
+      <NavigationComponent isEditMode={context.isEditMode} />{' '}
+      {/* Рендеримо NavigationComponent і передаємо йому значення isEditMode */}
+      <FooterComponent /> {/* Рендеримо FooterComponent */}
     </div>
   );
 }

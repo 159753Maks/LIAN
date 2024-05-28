@@ -1,7 +1,11 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { singInHandler } from 'src/user/handler/sing-in-handler'
 
 describe('login', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('200: login', async () => {
     const response: any = await singInHandler(
       {

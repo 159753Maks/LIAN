@@ -1,13 +1,18 @@
-import { mockAPIGatewayEvent, mockContext } from '../test-context'
+import { mockAPIGatewayEvent, mockContext, reSeedData } from '../test-context'
 import { categoryMock } from 'src/db/mock/category-mock'
 import { categoryUpdateHandler } from 'src/category/handler/category-update-handler'
+import { productMock } from '../../src/db/mock/product-mock'
 
 describe('Category update ', () => {
+  beforeAll(async () => {
+    await reSeedData()
+  })
+
   it('update by ID', async () => {
     // Mock category ID
     const payload = {
       title: 'Updated with products',
-      productsIds: ['2d4d3f2e-c31c-0000-0001-000000000006'],
+      productsIds: [productMock[0].uid, productMock[1].uid, productMock[2].uid],
     }
 
     // Call the get-by-id handler
