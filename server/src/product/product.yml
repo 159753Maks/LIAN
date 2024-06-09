@@ -1,0 +1,39 @@
+# Функція для створення нового продукту
+createProduct:
+  handler: src/product/handler/product-create-handler.productCreateHandler
+  events:
+    - http:
+        path: product
+        method: post # Метод POST для створення продукту
+
+# Функція для оновлення існуючого продукту
+updateProduct:
+  handler: src/product/handler/product-update-handler.productUpdateHandler
+  events:
+    - http:
+        path: product/{productId}
+        method: post # Метод POST для оновлення продукту за його ID
+
+# Функція для видалення продукту
+deleteProduct:
+  handler: src/product/handler/product-delete-handler.productDeleteHandler
+  events:
+    - http:
+        path: product/{productId}
+        method: delete # Метод DELETE для видалення продукту за його ID
+
+# Функція для отримання продукту за його ID
+getProductById:
+  handler: src/product/handler/product-get-by-id-handler.productGetByIdHandler
+  events:
+    - http:
+        path: product/{productId}
+        method: get # Метод GET для отримання інформації про продукт за його ID
+
+# Функція для отримання списку продуктів
+listProducts:
+  handler: src/product/handler/product-list-handler.productListHandler
+  events:
+    - http:
+        path: product
+        method: get # Метод GET для отримання списку всіх продуктів

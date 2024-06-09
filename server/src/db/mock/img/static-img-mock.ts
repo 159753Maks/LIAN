@@ -1,0 +1,30 @@
+const staticFileNames = [
+  '01.jpg',
+  '02.jpg',
+  '03.jpg',
+  '04.jpg',
+  'bcc_slider_1.jpg',
+  'Clip1.jpg',
+  'Clip2.jpg',
+  'Clip3.jpg',
+  'grid 1.png',
+  'grid 2.png',
+  'grid 3.png',
+  'grid 4.png',
+  'grid 5.png',
+  'grid 6.png',
+  'grid 7.png',
+  'grid 8.png',
+  'grid 9.png',
+  'grid 10.png',
+  'worker1.jpg',
+  'worker2.jpg',
+  'worker3.jpg',
+  'lian_logo.png',
+]
+
+export const staticImgMock = staticFileNames.map((fileName, index) => ({
+  uid: `2d4d3f2e-c31c-0000-0000-1000000000${10 + index}`,
+  fileName,
+  productUid: '2d4d3f2e-c31c-0000-0000-000000000000',
+}))

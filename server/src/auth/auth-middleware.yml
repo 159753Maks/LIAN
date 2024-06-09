@@ -1,0 +1,3 @@
+authenticate: server/src/auth/auth-middleware.ts
+notUsers: server/src/auth/not-users-middleware.ts
+onlyAdmins: server/src/auth/only-admins-middleware.ts

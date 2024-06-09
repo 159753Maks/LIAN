@@ -1,0 +1,31 @@
+# Додавання товару до замовлення
+addProductOrder:
+  handler: src/order/handler/add-product-to-order-handler.addProductToOrderHandler  # Імпорт та виклик обробника для додавання товару до замовлення
+  events:
+    - http:
+        path: order/{productId}  # Шлях для HTTP-запиту з параметром productId
+        method: post  # Метод HTTP-запиту (POST)
+
+# Видалення товару з замовлення
+deleteProductFromOrder:
+  handler: src/order/handler/delete-product-from-order-handler.deleteProductFromOrderHandler  # Імпорт та виклик обробника для видалення товару з замовлення
+  events:
+    - http:
+        path: order/{productId}  # Шлях для HTTP-запиту з параметром productId
+        method: delete  # Метод HTTP-запиту (DELETE)
+
+# Отримання списку замовлень
+listOrders:
+  handler: src/order/handler/list-order-handler.listOrderHandler  # Імпорт та виклик обробника для отримання списку замовлень
+  events:
+    - http:
+        path: order  # Шлях для HTTP-запиту
+        method: get  # Метод HTTP-запиту (GET)
+
+# Оновлення статусу замовлення
+updateOrderStatus:
+  handler: src/order/handler/update-order-status-handler.updateOrderStatusHandler  # Імпорт та виклик обробника для оновлення статусу замовлення
+  events:
+    - http:
+        path: order/{orderId}  # Шлях для HTTP-запиту з параметром orderId
+        method: put  # Метод HTTP-запиту (PUT)

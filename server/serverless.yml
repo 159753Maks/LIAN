@@ -1,0 +1,19 @@
+service: lian
+frameworkVersion: '3'  # Версія фреймворку Serverless
+
+plugins:  # Плагіни, які використовуються у проекті
+  - serverless-offline  # Плагін для локального запуску сервера
+  - serverless-plugin-typescript  # Плагін для підтримки TypeScript
+
+provider:  # Налаштування провайдера (AWS)
+  name: aws
+  runtime: nodejs18.x  # Версія Node.js, яка використовується провайдером
+  environment:  # Зміння середовища
+    PORT: 8000  # Порт, на якому буде працювати сервер
+
+functions:  # Встановлення функцій додатку
+  - ${file(src/product/product.yml)}  # Функція, яка встановлена у файлі product.yml
+  - ${file(src/user/user.yml)}  # Функція, яка встановлена у файлі user.yml
+  - ${file(src/category/category.yml)}  # Функція, яка встановлена у файлі category.yml
+  - ${file(src/images/images.yml)}  # Функція, яка встановлена у файлі images.yml
+  - ${file(src/order/order.yml)}  # Функція, яка встановлена у файлі order.yml
