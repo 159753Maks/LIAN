@@ -11,5 +11,6 @@ jspm_packages
 .serverless
 
 .env
-
+/server/node_modules
+/next-app/node_modules
 

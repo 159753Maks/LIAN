@@ -31,7 +31,7 @@ const fetchProducts = async (
   try {
     const data = await getProductsList(
       {
-        limit: 5, // Ліміт продуктів на одну сторінку
+        limit: 15, // Ліміт продуктів на одну сторінку
         offset, // Відступ для пагінації
         categoryIds:
           categoryFilter.categoryId && categoryFilter.categoryId !== 'null'
