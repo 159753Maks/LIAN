@@ -76,7 +76,7 @@ export default function ProductInfoEditComponent({
               value={category.uid} // Значення варіанту вибору (UID категорії)
               title={category.title} // Назва варіанту вибору (назва категорії)
             >
-              {category.title} // Відображення назви категорії
+              {category.title} {/*Відображення назви категорії*/}
             </option>
           ))}
         </select>

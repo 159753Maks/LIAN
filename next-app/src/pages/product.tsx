@@ -43,6 +43,10 @@ function ProductPage() {
     }
   };
 
+  useEffect(() => {
+    router.reload(); // Перезавантажуємо сторінку
+  }, [context.isEditMode]);
+
   // Ефект для завантаження даних про продукт при зміні ID продукту у маршруті
   useEffect(() => {
     if (productId && typeof productId === 'string' && productId !== 'new') {
