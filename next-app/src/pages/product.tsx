@@ -44,7 +44,10 @@ function ProductPage() {
   };
 
   useEffect(() => {
-    router.reload(); // Перезавантажуємо сторінку
+    if (!context.isEditMode && productId === 'new' && context.setState) {
+      context.setState({ ...context, isEditMode: false });
+      router.push('/');
+    }
   }, [context.isEditMode]);
 
   // Ефект для завантаження даних про продукт при зміні ID продукту у маршруті
