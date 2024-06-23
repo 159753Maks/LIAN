@@ -35,7 +35,7 @@ const SignupPage = () => {
       // Викликаємо функцію signup для реєстрації користувача
       await signup(username, password, firstName, lastName, context);
       // Переходимо на головну сторінку після успішної реєстрації
-      router.push('/');
+      router.push('/signin');
     } catch (error) {
       // Виводимо помилку в консоль у разі невдачі
       console.error('Error during sign in:', error);

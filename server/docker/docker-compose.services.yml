@@ -1,44 +1,50 @@
-version: '3.8'
+version: '3.8' # Вказує версію Docker Compose, яка використовується
 
 services:
   db:
-    image: postgres
-    container_name: local_pgdb
-    restart: always
+    image: postgres # Використовується офіційний образ PostgreSQL
+    container_name: local_pgdb # Ім'я контейнера
+    restart: always # Завжди перезапускати контейнер у разі помилки
     ports:
-      - "5432:5432"
+      - "5432:5432" # Прив'язка порту хоста 5432 до порту контейнера 5432
     environment:
-      POSTGRES_USER: degget
-      POSTGRES_PASSWORD: beaver
-      POSTGRES_DB: lian
+      # Змінні середовища для налаштування PostgreSQL
+      POSTGRES_USER: degget # Ім'я користувача PostgreSQL
+      POSTGRES_PASSWORD: beaver # Пароль користувача PostgreSQL
+      POSTGRES_DB: lian # Ім'я бази даних PostgreSQL
     volumes:
+      # Том для зберігання даних PostgreSQL на хості
       - ./data/db:/var/lib/postgresql/data
+
   pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4_container
-    restart: always
+    image: dpage/pgadmin4 # Використовується офіційний образ pgAdmin 4
+    container_name: pgadmin4_container # Ім'я контейнера
+    restart: always # Завжди перезапускати контейнер у разі помилки
     ports:
-      - "8888:80"
+      - "8888:80" # Прив'язка порту хоста 8888 до порту контейнера 80
     environment:
-      PGADMIN_DEFAULT_EMAIL: degget@lian.com
-      PGADMIN_DEFAULT_PASSWORD: beaver
+      # Змінні середовища для налаштування pgAdmin 4
+      PGADMIN_DEFAULT_EMAIL: degget@lian.com # Електронна адреса за замовчуванням для входу
+      PGADMIN_DEFAULT_PASSWORD: beaver # Пароль за замовчуванням для входу
     volumes:
+      # Том для зберігання даних pgAdmin 4 на хості
       - ./data/pgadmin:/var/lib/pgadmin
 
   localstack:
-    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
-    image: localstack/localstack
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}" # Ім'я контейнера з можливістю змінити через змінну середовища
+    image: localstack/localstack # Використовується офіційний образ LocalStack
     ports:
-      - "4566:4566"            # LocalStack Gateway
-      - "4571:4571"  # external services port range
+      - "4566:4566" # Прив'язка порту хоста 4566 до порту контейнера 4566 (LocalStack Gateway)
+      - "4571:4571" # Прив'язка порту хоста 4571 до порту контейнера 4571 (для зовнішніх сервісів)
     environment:
-      - SERVICES=s3
-      - DEBUG=1
+      # Змінні середовища для налаштування LocalStack
+      - SERVICES=s3 # Активувати сервіс S3 у LocalStack
+      - DEBUG=1 # Увімкнути режим налагодження
     volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-
+      # Томи для зберігання даних LocalStack на хості
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack" # Том для даних LocalStack
+      - "/var/run/docker.sock:/var/run/docker.sock" # Доступ до Docker сокету для управління контейнерами
 
 volumes:
-  local_pgdata:
-  pgadmin-data:
+  local_pgdata: # Том для даних PostgreSQL
+  pgadmin-data: # Том для даних pgAdmin 4

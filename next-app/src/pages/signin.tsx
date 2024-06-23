@@ -29,7 +29,7 @@ const SigninPage = () => {
       // Викликаємо функцію signin для авторизації користувача
       await signin(username, password, context);
       // Переходимо на головну сторінку після успішного входу
-      router.push('/');
+      router.push('');
     } catch (error) {
       // Виводимо помилку в консоль у разі невдачі
       console.error('Error during sign in:', error);
