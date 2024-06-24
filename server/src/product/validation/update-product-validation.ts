@@ -5,10 +5,13 @@ import { ProductDto } from '../interface/product-dto'
 
 const schema = Joi.object({
   uid: Joi.string().uuid().required(),
-  title: Joi.string().alphanum().min(3).max(100).required(),
-  description: Joi.string().alphanum().min(3).required(),
+  title: Joi.string().min(3).max(100).required(),
+  subDescription: Joi.string().min(3).required(),
+  description: Joi.string().min(3).required(),
   cost: Joi.number().positive().required(),
   count: Joi.number().positive().required(),
+  categoryIds: Joi.array().items(Joi.string().uuid()),
+  imgIds: Joi.array().items(Joi.string().uuid()),
 })
 
 export const validateUpdateProduct = (event: APIGatewayProxyEvent): ProductDto => {
