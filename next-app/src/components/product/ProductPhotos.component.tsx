@@ -52,11 +52,11 @@ export default function ProductPhotos({
 
   // Функція для видалення зображення
   const deleteImg = (uid: string) => {
-    currentProduct.images = currentProduct.images.filter(
-      img => img.uid !== uid
-    );
-    setCurrentProduct(currentProduct);
-    saveProductChanges(currentProduct);
+    const currentChanges: IProduct = {
+      ...currentProduct,
+      images: currentProduct.images.filter(img => img.uid !== uid),
+    };
+    setCurrentProduct(currentChanges);
   };
 
   // Обробник натискання на кнопку "Вперед"
@@ -90,7 +90,6 @@ export default function ProductPhotos({
           ...currentProduct,
           images: [...currentProduct.images, result],
         });
-        saveProductChanges(currentProduct);
         setIsModalOpen(false); // Закриття модального вікна після завантаження зображення
       } catch (error) {
         console.error('Error uploading image:', error); // Виведення помилки у випадку її виникнення
@@ -108,6 +107,7 @@ export default function ProductPhotos({
       });
       // Інакше встановити стандартне зображення
     }
+    saveProductChanges(currentProduct);
   }, [currentProduct]);
 
   useEffect(() => {
@@ -178,12 +178,11 @@ export default function ProductPhotos({
 
         {/* Кнопка для перемикання наступного зображення */}
         <button
-          className={`self-stretch bg-gray-200 text-xl font-bold flex items-center justify-center  ${
-            sliderLength < maxLength ||
+          className={`self-stretch bg-gray-200 text-xl font-bold flex items-center justify-center  ${sliderLength < maxLength ||
             currentIndex + maxLength - 1 >= currentProduct.images.length
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gray-200'
-          }`}
+            ? 'bg-gray-400 cursor-not-allowed'
+            : 'bg-gray-200'
+            }`}
           onClick={handleNextClick} // Обробник натискання на кнопку "Вперед"
           disabled={
             sliderLength < maxLength ||

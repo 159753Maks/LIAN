@@ -94,6 +94,7 @@ function ProductPage() {
 
   // Функція для збереження змін у даних про продукт
   const saveProductChanges = (product: IProduct) => {
+    console.log(product, "product");
     setProduct(product);
   };
 
