@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ProductPhotoImgUploadModal from '@/components/product/ProductPhoto.img.upload.modal.component'; // Імпорт компоненту модального вікна для завантаження зображень товару
 import { IProduct } from '@/hooks/product/interface/product.interface'; // Імпорт інтерфейсів продукту та зображення продукту
@@ -90,16 +90,29 @@ export default function ProductPhotos({
           ...currentProduct,
           images: [...currentProduct.images, result],
         });
-        saveProductChanges({
-          ...currentProduct,
-          images: [...currentProduct.images, result],
-        });
+        saveProductChanges(currentProduct);
         setIsModalOpen(false); // Закриття модального вікна після завантаження зображення
       } catch (error) {
         console.error('Error uploading image:', error); // Виведення помилки у випадку її виникнення
       }
     };
   };
+
+  useEffect(() => {
+    if (currentProduct.images.length > 0 && selectedImage.filename === '404') {
+      setSelectedImage(currentProduct.images[0]); // Вибрати перше зображення зі списку
+    } else if (currentProduct.images.length === 0) {
+      setSelectedImage({
+        url: '/no-image.png',
+        filename: '404',
+      });
+      // Інакше встановити стандартне зображення
+    }
+  }, [currentProduct]);
+
+  useEffect(() => {
+    setCurrentProduct(product);
+  }, [product]);
 
   return (
     <div className="pt-20 flex flex-col justify-between items-center min-h-screen max-w-screen mx-auto">

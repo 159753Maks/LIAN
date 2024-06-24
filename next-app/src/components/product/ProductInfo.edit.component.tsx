@@ -88,7 +88,7 @@ export default function ProductInfoEditComponent({
         </label>
         <input
           className="h-5 w-full bg-gray-400"
-          defaultValue={product.title} // Початкове значення - назва товару
+          value={product.title} // Початкове значення - назва товару
           placeholder="Назва товару" // Плейсхолдер поля введення назви товару
           onChange={
             e => saveProductChanges({ ...product, title: e.target.value }) // Збереження змін у назві товару
@@ -102,7 +102,7 @@ export default function ProductInfoEditComponent({
         </label>
         <textarea
           className="h-36 bg-gray-400"
-          defaultValue={product.subDescription} // Початкове значення - коротка характеристистика товару
+          value={product.subDescription} // Початкове значення - коротка характеристистика товару
           onChange={
             e =>
               saveProductChanges({ ...product, subDescription: e.target.value }) // Збереження змін у короткій характеристиці товару
@@ -114,7 +114,7 @@ export default function ProductInfoEditComponent({
         </label>
         <textarea
           className="h-36 bg-gray-400"
-          defaultValue={product.description} // Початкове значення - опис товару
+          value={product.description} // Початкове значення - опис товару
           onChange={
             e => saveProductChanges({ ...product, description: e.target.value }) // Збереження змін у описі товару та його характеристиках
           }
@@ -126,7 +126,7 @@ export default function ProductInfoEditComponent({
         <input
           className="h-6 w-96 bg-gray-400 ml-5"
           type="text"
-          defaultValue={product.cost} // Початкове значення - ціна товару
+          value={product.cost} // Початкове значення - ціна товару
           onChange={
             e => saveProductChanges({ ...product, cost: +e.target.value }) // Збереження змін у ціні товару
           }

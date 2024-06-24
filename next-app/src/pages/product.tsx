@@ -6,11 +6,11 @@ import HeaderComponent from '@/components/generic/header.component'; // Імпо
 import ProductInfo from '@/components/product/ProductInfo.component'; // Імпортуємо компонент ProductInfo для відображення інформації про продукт
 import ProductPhotos from '@/components/product/ProductPhotos.component'; // Імпортуємо компонент ProductPhotos для відображення фотографій продукту
 import { addProductToOrder } from '@/hooks/order/addProductToOrder'; // Імпортуємо функцію addProductToOrder для додавання продукту до замовлення
-import { createProduct } from '@/hooks/product/createProduct';
+import { createProduct } from '@/hooks/product/createProduct'; // Імпортуємо функцію createProduct для створення нового продукту
 import { getProductById } from '@/hooks/product/getProductById'; // Імпортуємо функцію getProductById для отримання продукту за ID
 import { IProduct } from '@/hooks/product/interface/product.interface'; // Імпортуємо інтерфейс продукту
 import { updateProductById } from '@/hooks/product/updateProductById'; // Імпортуємо функцію updateProductById для оновлення продукту за ID
-import { useAppContext } from '@/pages/_appWrapper'; // Імпортуємо функцію createProduct для створення нового продукту
+import { useAppContext } from '@/pages/_appWrapper';
 
 // Функція компонента ProductPage, яка відповідає за відображення сторінки продукту
 function ProductPage() {
